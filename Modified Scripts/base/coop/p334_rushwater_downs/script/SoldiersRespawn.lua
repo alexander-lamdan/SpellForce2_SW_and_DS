@@ -6,16 +6,23 @@ State
 	{
 		Conditions =
 		{
-	    	-- fill_me
+	    	FigureIsDead {Tag="Soldier1"}
 		},
 		Actions =
 		{
-			FogOfWarReveal {X = 586,Y = 555,Range = 50,Height = 20},
-			FogOfWarReveal {X = 290,Y = 613,Range = 50,Height = 20},
+
 		},
 		GotoState = "MAIN",
 	};
 };
+
+OnEvent
+{
+  Actions =
+  {
+    FigureRespawn {Tag="Soldier1",X=302,Y=330},
+  },
+}
 
 State
 {
