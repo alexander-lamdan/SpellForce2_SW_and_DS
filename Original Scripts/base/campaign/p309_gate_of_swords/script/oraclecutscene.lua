@@ -1,0 +1,134 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene am Orakel
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneOrakel",
+--		Conditions =
+--		{
+--			FigureIsInRange	{Range = 8, X = 143, Y = 505, Tag = "pl_HumanAvatar"},
+--			QuestIsActive {Quest = "TravelToOracleMountain"},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneOrakel",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			MapFlagSetTrue {Name = "mf_P309_CutsceneOracleBegin"},
+--			CutsceneBegin {},
+--			CameraSet {X = 163.54, Y = 71.50, Z = 506.90, LookAtX = 162.57, LookAtY = 71.28, LookAtZ = 506.97},
+--			EntityTimerStart {Name = "et_CutsceneOracle"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor7", Tag = "Kor"},
+--				
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor8", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Mardrag1", Tag = "Mardrag"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel1", Tag = "Oracle"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 24},
+--			},
+--			-- !!! Wenn der Ork den AUftrag gehört hat läuft er schon mal vor, dafür Flag hier
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel2", Tag = "Oracle"},
+--				MapFlagSetTrue {Name = "mf_P309_CutsceneOracleMid"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel3", Tag = "Oracle"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracle", Seconds = 35},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneOracleEnd"},
+--				QuestSetSolved {Quest = "TravelToOracleMountain"},
+--				QuestSetActive {Quest = "FindFlowers"},
+--			},
+--	},
+--};
+--
+--	

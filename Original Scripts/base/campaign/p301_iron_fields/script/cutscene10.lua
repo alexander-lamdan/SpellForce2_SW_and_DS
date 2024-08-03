@@ -1,0 +1,175 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		
+--		Conditions =
+--		{
+--			-- Der Spieler hat das Haupthaus geclaimt und die Cutscene beginnt
+--			QuestIsActive {Quest = "GatherLenya"},
+--			-- Auch dummy
+--			MapFlagIsTrue {Name = "mf_P309_TalkedToFalkmar"},
+--			AvatarIsNotTalking{}, GameInterfaceIsVisible{}, -- die beiden gehören zusammen, deswegen beide in einer zeile!
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_P301_CutsceneDelay"}	
+--		},
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene10",
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_P301_CutsceneDelay", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--		}
+--	}
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene10",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene10"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina4", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina5", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Hydra1", Tag = "Hydra"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina6", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina7", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "TothLar1a", Tag = "TothLar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina8", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "TothLar2", Tag = "TothLar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 46},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina9", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 60},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},			
+--				CutsceneEnd {},
+--				MapTimerStart {Name = "mt_P301_OutcriesAfterDragonFight"},
+--				FigureTeleport {X = 180, Y = 583, Tag = "TothLar"}
+--			},
+--	},
+--};
+--
+--	

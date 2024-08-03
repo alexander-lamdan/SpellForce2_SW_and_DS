@@ -1,0 +1,112 @@
+---------------------------------------------------------------------------------
+----
+----		3. Cutscene:
+----
+----		Am Portal, Kor, Kaziz und Toth Lar kämpfen
+----
+----		
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P307_PortalFight"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 445.46, Y = 104.91, Z = 497.42, LookAtX = 445.46, LookAtY = 103.97, LookAtZ = 497.77},
+--			EntityTimerStart {Name = "et_Cutscene"},		
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalFight01", Tag = "TothLarEndFight"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalFight02", Tag = "TothLarEndFight"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalFight03", Tag = "TothLarEndFight"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--			},
+--			Actions =
+--			{	
+--				FigureTeamTransfer	{Tag = "KorEndFight", Team = "tm_Team1"},
+--				FigureTeamTransfer	{Tag = "KazizEndFight", Team = "tm_Team3Darkelves"},
+--			},
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P307_CS03Finished"},
+--				
+--
+--			},
+--	},
+--	
+--}

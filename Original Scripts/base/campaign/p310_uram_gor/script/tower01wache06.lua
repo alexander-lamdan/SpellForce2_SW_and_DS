@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "DemonTowerAngreiferSammellScript01.lua")

@@ -1,0 +1,73 @@
+gtHarvestCoords =
+{
+	-- Die Koordinaten der Erntefelder
+	
+	[1] = { X = 272.228, Y = 475.12 },
+	[2] = { X = 360.246, Y = 499.053 },
+	[3] = { X = 452.099, Y = 403.93 },
+ 	[4] = { X = 397.705, Y = 263.627 },
+ 	[5] = { X = 326.738, Y = 158.082 },
+} 
+  
+
+gtDeliveryCoords =
+{
+	-- Die Koordinaten der Lords
+	
+	[1] = { X = 147.687, Y = 311.02 },
+	[2] = { X = 191.066, Y = 258.617 },
+	[3] = { X = 145.831, Y = 257.333 },
+ 	[4] = { X = 190.295, Y = 309.844 },
+ 	[5] = { X = 88.2199, Y = 284.754 },
+} 
+  
+  
+State
+{
+	StateName = "MainScript",
+   
+
+   OnIdleGoHomeFake
+   {
+   	X = gtHarvestCoords[myharvest].X,
+   	Y = gtHarvestCoords[myharvest].Y,
+   	GotoForced = true,
+   	Conditions = 
+   		{
+   			EntityFlagIsFalse{Name = "ef_GotMyHarvest"},
+   			
+   			AvatarFlagIsTrue {Name = "af_P312_CS01Finished"},
+   			-- erst loslaufen, sobald Cutscene um ist
+   		},
+   	Actions = 
+		{
+		},
+	HomeActions =
+		{
+			EntityFlagSetTrue{Name = "ef_GotMyHarvest"},
+			FigureUnitChange{Tag = "default", UnitId = 515, Level = 12},
+		},
+   },
+
+
+  OnIdleGoHomeFake
+   {
+   	X = gtDeliveryCoords[mydelivery].X,
+   	Y = gtDeliveryCoords[mydelivery].Y,
+   	GotoForced = true,
+   	Conditions = 
+   		{
+   			EntityFlagIsTrue{Name = "ef_GotMyHarvest"}
+   		},
+   	Actions = 
+		{
+		},
+	HomeActions =
+		{
+			EntityFlagSetFalse{Name = "ef_GotMyHarvest"},
+			AvatarFlagSetTrue{Name = myflag},
+			FigureUnitChange{Tag = "default", UnitId = 154, Level = 12 },
+		},
+   },
+   
+};

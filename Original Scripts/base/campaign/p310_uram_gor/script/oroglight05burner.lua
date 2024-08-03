@@ -1,0 +1,28 @@
+--
+--State
+--{
+--	StateName = "OrogBurnerSpawn",
+--	OnFigureRespawnEvent
+--	{
+--		WaitTime = 1,
+--		X = GetEntityX(),
+--		Y = GetEntityY(),
+--		Conditions = 
+--		{
+--			SetUpdateInterval {Steps = 6},
+--			MapFlagIsTrue {Name = "mf_TzangAlive"},
+--			MapFlagIsFalse {Name = "mf_OrogLight05On"},
+--			MapTimerIsElapsed	{Name = "mt_Burner05generateTimer", Seconds = 90},
+--			FigureIsAlive	{Tag = "Orog"},
+--		},
+--		Actions = 
+--		{
+--			FigureForcedWalk	{X = OrogLight05X, Y = OrogLight05Y},
+--		},
+--		DeathActions = 
+--		{
+--			MapTimerStop	{Name = "mt_Burner05generateTimer"},
+--			MapTimerStart	{Name = "mt_Burner05generateTimer"},
+--		},
+--	},
+--};

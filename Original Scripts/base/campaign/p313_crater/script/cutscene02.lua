@@ -1,0 +1,110 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene wenn jemand in Crater eindringt
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "IntroCrater",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--			AvatarFlagIsTrue{Name = "af_P313_Cutscene02Begin"},
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 170.43, Y = 54.53, Z = 213.83, LookAtX = 170.43, LookAtY = 53.59, LookAtZ = 214.17},
+--			FigureTeleport {Tag = "pl_HumanAvatar", X = 170.7, Y = 147.48},
+--			FigureTeleport {Tag = "pl_HumanHeroBor", X = 167.05, Y = 143.6},
+--			FigureTeleport {Tag = "pl_HumanHeroLya", X = 171.55, Y = 140.06},
+--			FigureTeleport {Tag = "pl_HumanHeroJared", X = 177.53, Y = 140.56},
+--			FigureTeleport {Tag = "pl_HumanHeroMordecay", X = 174.23, Y = 136.08},
+--			FigureTeleport {Tag = "pl_HumanHeroShae", X = 175.56, Y = 148.00},
+--			EntityTimerStart {Name = "et_CutsceneTimer"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 5},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "WhereIsMirror01", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "WhereIsMirror02", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 15},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "WhereIsMirror03", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "WhereIsMirror04", Tag = "pl_HumanHeroBor"},
+--			},
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 25},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue{Name = "af_P313_Cutscene02Ended"},
+--			},
+--	},
+--};
+--
+--	

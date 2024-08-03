@@ -1,0 +1,106 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene6",
+--		Conditions =
+--		{
+--			MapFlagIsTrue {Name = "mf_P301_SignalFireCutscene"},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene6",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene6"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene6", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong4", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene6", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar6", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene6", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong5", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene6", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar7", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene6", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {},
+--				QuestSetActive {Quest = "TalkToPaladins"},
+--				QuestSetSolved {Quest = "IgniteAlarmFire"},
+--				MapFlagSetTrue {Name = "mf_P301_SignalFireCutsceneShown"}
+--			},
+--	},
+--};
+--
+--	

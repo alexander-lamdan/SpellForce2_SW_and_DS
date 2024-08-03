@@ -1,0 +1,179 @@
+-----.-----------------------------------------------------------------
+----
+----   Falle, die den Spieler mit einem bösen Gegner einsperrt (Test)
+----
+-----------------------------------------------------------------------
+
+--trapPosX = 348
+--trapPosY = 531
+----killRange = 10
+--triggerRange = 10
+----trapName = "Falle3"
+----effectName = "Effect_Misc_TrapSpikes"
+----effectName2 = "Effect_Misc_TrapSpikes_2"
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			ObjectVanish {Tag = "Falle7"},
+--			ObjectVanish {Tag = "Falle7a"},
+--			
+--		}   
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--			PlayerFigureIsInRange {X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			FigureIsNotInRange {Tag = "Pioneer1", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			FigureIsNotInRange {Tag = "Pioneer2", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			FigureIsNotInRange {Tag = "Pioneer3", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			FigureIsNotInRange {Tag = "Pioneer4", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			FigureIsNotInRange {Tag = "Pioneer5", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			
+--			
+--		},
+--		Actions =
+--		{
+--			ObjectSpawn {Tag = "Wall1", ObjectId = 1956, X = 358.41, Y = 526.502, Direction = 240.412},
+--			ObjectSpawn {Tag = "Wall2", ObjectId = 1956, X = 343.855, Y = 535.057, Direction = 240.412},
+--			MapFlagSetTrue {Name = "mf_P315_Trap7Triggered"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			EntityTimerStart {Name = "et_P315_WallDespawn"}
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			FigureIsDead {Tag = "TrapMonster2"},
+--			FigureIsDead {Tag = "TrapMonster3"},
+--			MapFlagIsTrue {Name = "mf_P315_Trap7Triggered"},
+--			EntityTimerIsElapsed {Name = "et_P315_WallDespawn", Seconds = 10}
+--		},
+--		Actions =
+--		{
+--			ObjectVanish {Tag = "Wall1"},
+--			ObjectVanish {Tag = "Wall2"},
+--		}
+--	},
+--	-- Sind Einzelevents Pro entschärfer, da auch der jeweilige den Outcry absetzen muss
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			FigureIsInRange {Tag = "Pioneer1", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--		},
+--		Actions =
+--		{
+--			FigureOutcry {TextTag = "Pioneer1", Tag = "Pioneer1"},
+--			FigureOutcry {TextTag = "Pioneer2", Tag = "Pioneer1"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			FigureStop {Tag = "Pioneer1"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--			FigureIsInRange {Tag = "Pioneer2", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--		},
+--		Actions =
+--		{
+--			FigureOutcry {TextTag = "Pioneer1", Tag = "Pioneer2"},
+--			FigureOutcry {TextTag = "Pioneer2", Tag = "Pioneer2"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			FigureStop {Tag = "Pioneer2"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--			FigureIsInRange {Tag = "Pioneer3", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--		},
+--		Actions =
+--		{
+--			FigureOutcry {TextTag = "Pioneer1", Tag = "Pioneer3"},
+--			FigureOutcry {TextTag = "Pioneer2", Tag = "Pioneer4"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			FigureStop {Tag = "Pioneer3"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--			FigureIsInRange {Tag = "Pioneer4", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--		},
+--		Actions =
+--		{
+--			FigureOutcry {TextTag = "Pioneer1", Tag = "Pioneer4"},
+--			FigureOutcry {TextTag = "Pioneer2", Tag = "Pioneer4"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			FigureStop {Tag = "Pioneer4"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			EntityFlagIsFalse {Name = "ef_P315_TrapTriggered"},
+--			FigureIsInRange {Tag = "Pioneer5", X = trapPosX, Y = trapPosY, Range = triggerRange},
+--		},
+--		Actions =
+--		{
+--			FigureOutcry {TextTag = "Pioneer1", Tag = "Pioneer5"},
+--			FigureOutcry {TextTag = "Pioneer2", Tag = "Pioneer5"},
+--			EntityFlagSetTrue {Name = "ef_P315_TrapTriggered"},
+--			FigureStop {Tag = "Pioneer5"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "End",
+--		Conditions =
+--		{
+--			QuestIsSolved {Quest = "WatchOutForTraps"}
+--		},
+--		Actions =
+--		{
+--		}
+--	}
+--}
+--
+--State
+--{
+--	StateName = "End",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--		}
+--		
+--	},
+--}

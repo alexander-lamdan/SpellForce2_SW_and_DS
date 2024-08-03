@@ -1,0 +1,166 @@
+-------------------------------------------------------------------------------
+--
+--		Cutscene bei Errichen Wulfer
+--		Die Cutscene ist zum Dialog geworden und wird nicht mehr benötigt
+-------------------------------------------------------------------------------
+
+
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene7",
+--		Conditions =
+--		{
+--			MapFlagIsTrue {Name = "mf_P301_WufgerCutsceneStart"},
+--			MapFlagIsTrue {Name = "mf_P301_NeverTrue"}
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene7",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene7"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Wulfger1", Tag = "Wulfger"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong6", Tag = "NightSong1"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar8", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Wulfger2", Tag = "Wulfger"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Wulfger3", Tag = "Wulfger"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar9", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Wulfger4", Tag = "Wulfger"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar10", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 44},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Wulfger5", Tag = "Wulfger"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene7", Seconds = 50},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				PlayerKitTransfer	{Player = "default", PlayerKit = "pk_GiveHQ"},
+--				--MapTimerStart {Name = "mt_P301_OutcriesOath"},
+--				--DialogTypeSetMainQuest {Tag = "Thora"}, 
+--				--DialogSetEnabled {Tag = "Thora"},
+--				QuestSetSolved {Quest = "TalkToPaladins"},
+--				QuestSetActive {Quest = "BreakPactSiege"},
+--				MapFlagSetTrue {Name = "mf_P301_WufgerCutsceneShown"}
+--			},
+--	},
+--};
+
+	

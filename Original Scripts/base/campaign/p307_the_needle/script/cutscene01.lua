@@ -1,0 +1,223 @@
+---------------------------------------------------------------------------------
+----
+----		1. Cutscene:
+----
+----		Streitgespräch Toth Lar mit Orkchef Kor,
+----
+----		danach Avatar-Briefing durch Einar und Karan
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P307_Intro"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 525.48, Y = 69.67, Z = 405.05, LookAtX = 526.03, LookAtY = 69.22, LookAtZ = 405.75},
+--			EntityTimerStart {Name = "et_Cutscene"},		
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro01", Tag = "TothLar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro02", Tag = "ChiefKor"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 571.38, Y = 69.67, Z = 456.43, LookAtX = 570.73, LookAtY = 69.30, LookAtZ = 455.77},
+--			CutsceneSay	{TextTag = "Intro03", Tag = "ChiefKor"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro04", Tag = "TothLar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro05", Tag = "ChiefKor"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro06", Tag = "TothLar"},
+--			
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 35},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro07", Tag = "TothLar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 40},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro08", Tag = "ChiefKor"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 45},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 209.70, Y = 19.64, Z = 215.63, LookAtX = 209.70, LookAtY = 19.19, LookAtZ = 216.52},
+--			CutsceneSay	{TextTag = "Intro09", Tag = "Einar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 50},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro10", Tag = "Karan"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 55},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro11", Tag = "Einar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 60},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Intro12", Tag = "Einar"},
+--			
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 65},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P307_CS01Finished"},
+--				
+--				-- InfoOucryFürQA
+--				FigureOutcry{TextTag = "QAInfo01", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	
+--}

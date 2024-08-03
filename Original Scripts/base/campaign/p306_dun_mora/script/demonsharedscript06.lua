@@ -1,0 +1,71 @@
+--
+---- Script fuer die normalen Daemonen (Tor 01)
+---- "Group01Demon01-0X"
+---- werden der Ground-KI uebergeben
+------------------------------------------
+--
+--
+--
+--State
+--{	
+--	StateName = "INIT",
+--	
+--		OnOneTimeEvent
+--	{
+--		
+--		GotoState = "Respawn",
+--		Conditions = 
+--		{
+--		},
+--		Actions = 
+--		{
+--			FigurePlayerTransfer	{Tag = "default", Player = "pl_FlightDemon"},
+--		},
+--	};
+--}	
+--	
+--	
+--State
+--{	
+--	StateName = "Respawn",
+--	OnFigureRespawnEvent
+--	{
+--		
+--		WaitTime = 220,
+--		X = 344,
+--		Y = 530,
+--		Conditions = 
+--		{
+--			BuildingIsAlive	{Tag = "P306_DemonShrine_01"},
+--		},
+--		Actions = 
+--		{
+--			FigureWalk	{Tag = "default", X = GetEntityX(), Y = GetEntityY()},
+--			FigurePlayerTransfer	{Tag = "default", Player = "pl_Demon"},
+--		},
+--		DeathActions = 
+--		{
+--		},
+--		DelayedActions = 
+--		{
+--		},
+--	},
+--	
+--	 --Daemonen ziehen sich nach Attack2 zurueck
+--	OnOneTimeEvent
+--	{
+--		
+--		Conditions = 
+--		{
+--			MapFlagIsTrue {Name = "mf_Retreat02"},			
+--		},
+--		Actions = 
+--		{
+--			FigureForcedRun	{Tag = "default", X = GetEntityX(), Y = GetEntityY()},
+--		},
+--	},
+--}
+--
+--
+-- 
+-- 

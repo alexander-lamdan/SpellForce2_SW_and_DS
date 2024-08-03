@@ -1,0 +1,98 @@
+---------------------------------------------------------------------------------
+----
+----		1. Cutscene:
+----
+----		Nach dem Sieg über die ersten Bündler
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P314_Cutscene01Begin"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 145.82, Y = 102.76, Z = 407.30, LookAtX = 145.82, LookAtY = 101.82, LookAtZ = 407.64},
+--			FigureTeleport	{Tag = "Eisenfuerst", X = 138 , Y = 413},
+--			EntityTimerStart {Name = "et_Cutscene"},	
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "FirstVictory01", Tag = "Torshak"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "FirstVictory02", Tag = "Torshak"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "FirstVictory03", Tag = "Eisenfuerst"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P314_CS01Finished"},
+--			},
+--	},
+--	
+--}

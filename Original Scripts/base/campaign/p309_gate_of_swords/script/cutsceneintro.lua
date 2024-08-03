@@ -1,0 +1,96 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Intro",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--			FigureVanish {Tag = "CS_01_Avatar"},
+--			FigureVanish {Tag = "CS_01_Shadowsong"},
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Intro",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--			--AvatarFlagIsTrue {Name = "af_P309_NeverTrue"},
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 472.96, Y = 26.20, Z = 648.65, LookAtX = 473.17, LookAtY = 25.87, LookAtZ = 649.57},
+--			EntityTimerStart {Name = "et_CutsceneIntro"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "ShadowSong1", Tag = "Shadowsong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 5},
+--			},
+--			Actions =
+--			{
+--				
+--				CameraSet {X = 444.43, Y = 26.20, Z = 687.92, LookAtX = 445.19, LookAtY = 26.01, LookAtZ = 687.30},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "ShadowSong2", Tag = "Shadowsong"},
+--				CameraSet {X = 298.95, Y = 26.20, Z = 638.60, LookAtX = 298.09, LookAtY = 26.16, LookAtZ = 638.09},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 25},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				MapTimerStart {Name = "mt_P309_CutsceneEnd"},
+--			},
+--	},
+--};
+--
+--	

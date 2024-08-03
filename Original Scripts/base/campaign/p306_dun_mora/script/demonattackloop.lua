@@ -1,0 +1,351 @@
+--State	
+--{
+--	StateName = "INIT", 
+--	OnOneTimeEvent
+--	{
+--		
+--		GotoState = "LoopActive",
+--		Conditions = 
+--		{
+--			
+--		},
+--		Actions = 
+--		{
+--		},
+--	},
+--
+--}
+--
+--
+--State
+--{
+--	StateName = "LoopActive",
+--	
+--	--wenn Loop aktiviert, loop-interner Timer los
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop1",
+--		Name = "AttackLoop1",
+--		Conditions = 
+--		{
+--			--MapFlagIsTrue	{Name = "mf_AttackLoopInit"},
+--			MapFlagIsFalse {Name = "mf_IoDialogPart1Done"},	
+--			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_02", Seconds = 50}, --Zeit zwischen 2 Angriffen, gestartet in DemonAttack1.lua	
+--		},
+--		
+--		Actions =
+--		{
+--			MapTimerStart	{Name = "mt_DemonAttackLoop_01"}, --Timer fuer Attacke
+--			MapTimerStart	{Name = "mt_DemonIndicatorLoop_01"}, --Timer fuer Indikatorenpflanzen
+--			
+--		},
+--	},	
+--	
+--	
+--	-----------------------------------------------------
+--				--Indikatorenpflanzen--
+--	------------------------------------------------------
+--	--Indikator-Pflanzen an, nacheinander:
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop2",
+--		Name = "AttackLoop2",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 5},		
+--		},
+--		
+--		Actions = 
+--		{
+--			EffectStart	{Tag = "DemonIndicator01", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator02", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator03", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator04", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator05", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator06", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator07", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator08", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator09", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator10", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator11", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator12", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator13", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator14", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator15", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator16", File = "Effect_Misc_DemonPlant"},
+--			
+--			
+--		},                      
+--	},                          
+--    
+--    OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop3",
+--		Name = "AttackLoop3",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 8},		
+--		},
+--		
+--		Actions = 
+--		{
+--			
+--			EffectStart	{Tag = "DemonIndicator17", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator18", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator19", File = "Effect_Misc_DemonPlant"},
+--			
+--			
+--		},                      
+--	},        
+--	
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop4",
+--		Name = "AttackLoop4",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 10},		
+--		},
+--		
+--		Actions = 
+--		{
+--			
+--			EffectStart	{Tag = "DemonIndicator20", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator21", File = "Effect_Misc_DemonPlant"},
+--			
+--			
+--		},                      
+--	},        
+--	
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop5",
+--		Name = "AttackLoop5",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 13},		
+--		},
+--		
+--		Actions = 
+--		{
+--			EffectStart	{Tag = "DemonIndicator22", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator23", File = "Effect_Misc_DemonPlant"},
+--		},                      
+--	},        
+--	
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop6",
+--		Name = "AttackLoop6",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 15},		
+--		},
+--		
+--		Actions = 
+--		{
+--			EffectStart	{Tag = "DemonIndicator24", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator25", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator26", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator27", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator28", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator29", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator30", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator31", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator32", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator33", File = "Effect_Misc_DemonPlant"},
+--			
+--		},                      
+--	}, 
+--	
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop6",
+--		Name = "AttackLoop6",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonIndicatorLoop_01", Seconds = 20},		
+--		},
+--		
+--		Actions = 
+--		{
+--			
+--			EffectStart	{Tag = "DemonIndicator34", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator35", File = "Effect_Misc_DemonPlant"},
+--			EffectStart	{Tag = "DemonIndicator36", File = "Effect_Misc_DemonPlant"},
+--			
+--		},                      
+--	},        
+--	
+--	
+--	-----------------------------------------------------------------------
+--								--Attacke--
+--	-----------------------------------------------------------------------
+--	--Daemonen greifen an, getaktet nach loop-internem Timer
+--	--Init für Demon Shared.lua: Waypoints fuer Attack
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop7",
+--		Name = "AttackLoop7",
+--		Conditions = 
+--		{
+--			--MapFlagIsTrue	{Name = "mf_AttackLoopInit"},
+--			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_01", Seconds = 20},
+--		},
+--		Actions = 
+--		{
+--			MapFlagSetTrue  {Name = "mf_DemonAttackRunning"}, --Init für Demon Shared.lua: Waypoints fuer Attack
+--		},
+--	},
+--
+--
+--------------------------------
+----hier fehlt noch der genaue Ablauf der Attacke:
+--
+----Effekt beim saugen
+---------------------------------
+--	
+--	
+--	
+--	
+--	
+----------------------------------------------------------------------------
+--								--Rueckzug--
+----------------------------------------------------------------------------
+--	--Daemonen ziehen sich zurueck, getaktet nach loop-internem Timer
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop8",
+--		Name = "AttackLoop8",
+--			
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_01", Seconds = 200},			
+--		},
+--		Actions = 
+--		{
+--			
+--			MapFlagSetFalse  {Name = "mf_DemonAttackRunning"}, --InitAus für Demon Shared.lua: Waypoints fuer Attack
+--			
+--		--Indikator-Pflanzen gehen aus
+--			EffectStop	{Tag = "DemonIndicator01"},
+--			EffectStop	{Tag = "DemonIndicator02"},
+--			EffectStop	{Tag = "DemonIndicator03"},
+--			EffectStop	{Tag = "DemonIndicator04"},
+--			EffectStop	{Tag = "DemonIndicator05"},
+--			EffectStop	{Tag = "DemonIndicator06"},
+--			EffectStop	{Tag = "DemonIndicator07"},
+--			EffectStop	{Tag = "DemonIndicator08"},
+--			EffectStop	{Tag = "DemonIndicator09"},
+--			EffectStop	{Tag = "DemonIndicator10"},
+--			EffectStop	{Tag = "DemonIndicator11"},
+--			EffectStop	{Tag = "DemonIndicator12"},
+--			EffectStop	{Tag = "DemonIndicator13"},
+--			EffectStop	{Tag = "DemonIndicator14"},
+--			EffectStop	{Tag = "DemonIndicator15"},
+--			EffectStop	{Tag = "DemonIndicator16"},
+--			EffectStop	{Tag = "DemonIndicator17"},
+--			EffectStop	{Tag = "DemonIndicator18"},
+--			EffectStop	{Tag = "DemonIndicator19"},
+--			EffectStop	{Tag = "DemonIndicator20"},
+--			EffectStop	{Tag = "DemonIndicator21"},
+--			EffectStop	{Tag = "DemonIndicator22"},
+--			EffectStop	{Tag = "DemonIndicator23"},
+--			EffectStop	{Tag = "DemonIndicator24"},
+--			EffectStop	{Tag = "DemonIndicator25"},
+--			EffectStop	{Tag = "DemonIndicator26"},
+--			EffectStop	{Tag = "DemonIndicator27"},
+--			EffectStop	{Tag = "DemonIndicator28"},
+--			EffectStop	{Tag = "DemonIndicator29"},
+--			EffectStop	{Tag = "DemonIndicator30"},
+--			EffectStop	{Tag = "DemonIndicator31"},
+--			EffectStop	{Tag = "DemonIndicator32"},
+--			EffectStop	{Tag = "DemonIndicator33"},
+--			EffectStop	{Tag = "DemonIndicator34"},
+--			EffectStop	{Tag = "DemonIndicator35"},
+--			EffectStop	{Tag = "DemonIndicator36"},
+--			
+--		},
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		
+--		GotoState = "LoopOff",
+--		Conditions = 
+--		{
+--			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_01", Seconds = 210},
+--		},
+--		Actions = 
+--		{
+--			MapFlagSetTrue {Name = "mf_RetreatLoop"}, --Rueckzug der Daemonen
+--		},
+--	},
+--
+----------------------------------------------------------------------
+--						--Re-Init--
+----------------------------------------------------------------------
+----	--Init fuer loop-externen Timer:
+----	--gleichzeitig mit Rueckzug wird timer02 gestartet, der "einen Tag" zaehlt,
+----	--nach Ablauf, re-Init des Loops
+----	OnOneTimeRepeatEvent
+----	{
+----		EventName = "AttackLoop9",
+----		Name = "AttackLoop9",
+----		Conditions = 
+----		{
+----			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_01", Seconds = 200},
+----		},
+----		Actions = 
+----		{
+----			MapTimerStart	{Name = "mt_DemonAttackLoop_02"},
+----		},
+----	},
+----	
+----	
+----	--nach "einem Tag" loop-externem Timer wieder von vorne
+----	OnOneTimeRepeatEvent
+----	{
+----		EventName = "AttackLoop10",
+----		Name = "AttackLoop10",
+----		Conditions = 
+----		{
+----			MapTimerIsElapsed	{Name = "mt_DemonAttackLoop_02", Seconds = 500}, --Zeit zwischen 2 Angriffen
+----			MapFlagIsFalse {Name = "mf_IoDialogPart1Done"},
+----		},
+----		Actions = 
+----		{
+----			EventReEnable	{Name = "AttackLoop1"},
+----			EventReEnable	{Name = "AttackLoop2"},
+----			EventReEnable	{Name = "AttackLoop3"},
+----			EventReEnable	{Name = "AttackLoop4"},
+----			EventReEnable	{Name = "AttackLoop5"},
+----			EventReEnable	{Name = "AttackLoop6"},
+----			EventReEnable	{Name = "AttackLoop7"},
+----			EventReEnable	{Name = "AttackLoop8"},
+----			EventReEnable	{Name = "AttackLoop9"},
+----			EventReEnable	{Name = "AttackLoop10"},
+----			EventReEnable	{Name = "AttackLoop11"},
+----		
+----		},
+----	},wieder anschalten! nur zum test aus!
+--}
+--
+--State	
+--{
+--	StateName = "LoopOff", 
+--	OnOneTimeRepeatEvent
+--	{
+--		EventName = "AttackLoop12",
+--		Name = "AttackLoop12",
+--		Conditions = 
+--		{
+--			
+--		},
+--		Actions = 
+--		{
+--			
+--		
+--		},
+--	},
+--}

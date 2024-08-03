@@ -1,0 +1,41 @@
+
+State
+{
+	StateName = "MainScript",
+
+	
+	OnFigureRespawnEvent
+	{
+		WaitTime = 360,
+		X = 111.503,
+		Y = 284.728,
+		-- Koordinaten des Undead-HQs
+		Conditions = 
+		{
+			BuildingIsAlive	{Tag = "UndeadHQ"},
+		},
+	};
+
+
+
+
+
+	OnIdleGoHomeFake
+	{
+		X = GetEntityX(),
+   		Y = GetEntityY(),
+		Range = 8,
+		UpdateInterval = 0,
+		Conditions = 
+		{
+		},
+		Actions = 
+		{
+		},
+		HomeActions = 
+		{
+		},
+	};
+
+  
+}

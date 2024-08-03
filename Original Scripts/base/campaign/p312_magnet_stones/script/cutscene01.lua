@@ -1,0 +1,87 @@
+---------------------------------------------------------------------------------
+----
+----		1. Cutscene:
+----
+----		Trolle kämpfen gegen Untote
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P312_CS01Start"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 493.76, Y = 56.36, Z = 158.83, LookAtX = 493.76, LookAtY = 55.42, LookAtZ = 159.18},
+--			EntityTimerStart {Name = "et_Cutscene"},		
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Arrival_01", Tag = "pl_HumanAvatar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Arrival_02", Tag = "pl_HumanAvatar"},
+--			
+--		}
+--	},
+--
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P312_CS01Finished"},
+--				
+--			},
+--	},
+--	
+--}

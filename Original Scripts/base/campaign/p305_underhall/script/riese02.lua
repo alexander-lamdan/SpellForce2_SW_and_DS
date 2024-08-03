@@ -1,0 +1,40 @@
+--
+--
+--
+--State
+--{	
+--	StateName = "INIT",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--		GotoState = "GolemStart"
+--	},
+--}
+--State
+--{
+--	StateName = "GolemStart",
+--	OnFigureSpawnOnlyWhenEvent
+--	{
+--		X = GetEntityX(),
+--		Y = GetEntityY(),
+--		Conditions = 
+--		{
+--			MapFlagIsTrue {Name = "mf_SteinGolem02Aktiv"},
+--			MapTimerIsElapsed	{Name = "mt_RieseTimer02", Seconds = 1},
+--			AvatarIsNotTalking{}, GameInterfaceIsVisible{}, -- die beiden gehören zusammen, deswegen beide in einer zeile!
+--		},
+--		Actions = 
+--		{
+--			FigureOutcry	{Tag = "Riese02", TextTag = "Giants04"},
+--			MapFlagSetTrue  {Name = "mf_Riese02Alive"},
+--			PlayerKitTransfer	{Player = "pl_Human", PlayerKit = "pk_Golem02"},   
+--		},
+--	},
+--
+--};

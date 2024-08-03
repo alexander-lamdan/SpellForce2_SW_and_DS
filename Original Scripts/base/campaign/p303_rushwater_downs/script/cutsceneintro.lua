@@ -1,0 +1,109 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Intro",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Intro",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 141.76, Y = 23.85, Z = 137.77, LookAtX = 141.24, LookAtY = 23.59, LookAtZ = 138.58},
+--			EntityTimerStart {Name = "et_CutsceneIntro"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar1", Tag = "Falkmar"},
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar2", Tag = "Falkmar"},
+--				CameraSet {X = 311.20, Y = 82.34, Z = 194.84, LookAtX = 311.11, LookAtY = 81.93, LookAtZ = 195.75},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar3", Tag = "Falkmar"},
+--				CameraSet {X = 119.71, Y = 15.75, Z = 133.05, LookAtX = 119.79, LookAtY = 15.76, LookAtZ = 134.05},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 21},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar4", Tag = "Falkmar"},
+--				CameraSet {X = 183.33, Y = 22.06, Z = 96.02, LookAtX = 184.10, LookAtY = 21.76, LookAtZ = 96.57},
+--			},
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntro", Seconds = 25},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P303_Todesblocker"},
+--				QuestSetSolved {Quest = "ToRushwater"},
+--				QuestSetActive {Quest = "RushwaterPart1ConvoiToTown"},
+--			},
+--	},
+--};
+
+	

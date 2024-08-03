@@ -1,0 +1,139 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene1",
+--		Conditions =
+--		{
+--			-- !!! Fake, eigentlich beginnt die Cutscene direkt
+--			MapTimerIsElapsed {Name = "mt_P301_IronFieldsTutorial", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene1",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene1"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor0", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar1", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor1", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar2", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor2", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor3", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor4", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene1", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {},
+--				MapFlagSetTrue {Name = "mf_P301_Cutscene1End"},
+--				MapTimerStart {Name = "mt_P301_TutorialTimer"}
+--			},
+--	},
+--};
+--
+--	

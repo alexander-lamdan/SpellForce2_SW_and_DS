@@ -1,0 +1,36 @@
+---- Torwachen kommen als sicherheitsblocker mal raus, falls man Tore nicht schlieﬂen kann
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Guard",
+--		Conditions =
+--		{
+--			MapFlagIsTrue{Name = "mf_P309_CutsceneGateBegin"},
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--	
+---- 
+--State
+--{
+--	StateName = "Guard",
+--	OnIdleRunHomeFake
+--	{
+--		X = GetEntityX(),
+--		Y = GetEntityY()+ 45,
+--		Conditions = 
+--		{
+--		},
+--		Actions = 
+--		{
+--		},
+--	};
+--
+--
+--	
+--}

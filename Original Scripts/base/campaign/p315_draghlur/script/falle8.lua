@@ -1,0 +1,107 @@
+
+-- Falle hat ein eigens Skript, damit man die Falle auch abschalten kann, wenn sie einmla getriggert hat
+-- Muss hinterher ein Sammelskript werden, welches von jeder Falle aufgerufen wird
+-- in den Fallenskripten selbst werden die Werte mit Inhalt gefüllt
+
+--trapPosX = 163
+--trapPosY = 272
+--killRange = 7
+--triggerRange = 5
+--trapName = "Falle8"
+--effectName = "Effect_Misc_Geysir_Inactive"
+--effectName2 = "Effect_Misc_Geysir_Active"
+--effectName3 = "Effect_Misc_Geysir_Eruption"
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--		}
+--		
+--	},
+--	-- Initialisieren des Effekts uind des Counters etc
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_P315_Geyser"},
+--			EffectStart	{Tag = trapName, File = effectName},
+--			EntityValueSet {Name = "ev_P315_Geyser", Value = 1},
+--		}
+--	},
+--	-- Zweite Stufe des Effekts
+--	OnEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_P315_Geyser", Seconds = 20},
+--			EntityValueIsEqual {Name = "ev_P315_Geyser", Value = 1},
+--		},
+--		Actions =
+--		{
+--			EffectStop {Tag = trapName},
+--			EffectStart	{Tag = trapName, File = effectName2},
+--			EntityValueSet {Name = "ev_P315_Geyser", Value = 2},
+--		}
+--	},
+--	-- Dritte Stufe des Effekts macht Schaden
+--	OnEvent
+--	{
+--		Conditions =
+--		{
+--			--PlayerFigureIsInRange {},
+--			EntityTimerIsElapsed {Name = "et_P315_Geyser", Seconds = 25},
+--			EntityValueIsEqual {Name = "ev_P315_Geyser", Value = 2},
+--		},
+--		Actions =
+--		{
+--			TeamCastSpell {Spell = 40, Power = 17, Team = "tm_Team2", X = trapPosX, Y =trapPosY},
+--			EffectStop {Tag = trapName},
+--			EffectStart	{Tag = trapName, File = effectName3},
+--			EntityValueSet {Name = "ev_P315_Geyser", Value = 0},
+--		}
+--	},
+--	-- Erste Stufe des Effekts
+--	OnEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_P315_Geyser", Seconds = 30},
+--			EntityValueIsEqual {Name = "ev_P315_Geyser", Value = 0},
+--		},
+--		Actions =
+--		{
+--			EffectStop {Tag = trapName},
+--			EffectStart	{Tag = trapName, File = effectName},
+--			EntityValueSet {Name = "ev_P315_Geyser", Value = 1},
+--			EntityTimerStart {Name = "et_P315_Geyser"},
+--		}
+--	},
+--	
+--}
+--
+--State
+--{
+--	StateName = "End",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--		}
+--		
+--	},
+--}

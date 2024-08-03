@@ -1,0 +1,125 @@
+
+  
+
+State
+{	
+	StateName = "INIT",
+	
+
+	OnFigureSpawnOnlyWhenEvent
+	{
+		X = GetEntityX(),
+		Y = GetEntityY(),
+		Conditions = 
+		{
+			MapValueIsEqual{Name = "mv_MineguardsKilled", Value = MySpawnPart},
+		},
+		Actions = 
+		{
+			EntityFlagSetTrue{Name = "ef_Spawned"},
+			EntityValueSet{Name = "ev_ISpawnedAtCounter", Value = MySpawnPart},
+		},
+	
+	};
+
+	
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+			EntityFlagIsTrue{Name = "ef_Spawned"},
+		},
+		Actions =
+		{
+		},
+		GotoState = "MainScript"
+	},
+	
+}
+
+State
+{
+	StateName = "MainScript",
+
+
+	-- Das folgende ist evtl. ein wenig schwierig zu verstehen
+	-- Die Einheiten, die sich dieses SharedScript teilen, sollen bis zu 3 mal respawnen
+	-- (Manche von ihnen respawnen 3mal, manche 2mal, manche 1mal, manche 0mal)
+	-- Die Einheiten, die 3 mal respawnen, haben folgende Werte
+	-- MySpawnPart = 1, MyRespawnPart01 = 2, MyRespawnPart02 = 3, MyRespawnPart03 = 4
+	-- Die Einheiten, die 2 mal respawnen, haben folgende Werte
+	-- MySpawnPart = 2, MyRespawnPart01 = 3, MyRespawnPart02 = 4, MyRespawnPart03 = 0
+	-- Die Einheiten, die 1 mal respawnen, haben folgende Werte
+	-- MySpawnPart = 3, MyRespawnPart01 = 4, MyRespawnPart02 = 0, MyRespawnPart03 = 0
+	-- Die Einheiten, die 0 mal respawnen, haben folgende Werte
+	-- MySpawnPart = 4, MyRespawnPart01 = 0, MyRespawnPart02 = 0, MyRespawnPart03 = 0
+	
+	OnFigureRespawnEvent
+	{
+		WaitTime = 5,
+		X = GetEntityX(),
+		Y = GetEntityY(),
+		Conditions = 
+		{
+			MapValueIsEqual{Name = "mv_MineguardsKilled", Value = MyRespawnPart01},
+			EntityValueIsLess{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart01},
+		},
+		Actions = 
+		{
+			EntityValueSet{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart01},
+		},
+	};
+	
+	OnFigureRespawnEvent
+	{
+		WaitTime = 5,
+		X = GetEntityX(),
+		Y = GetEntityY(),
+		Conditions = 
+		{
+			MapValueIsEqual{Name = "mv_MineguardsKilled", Value = MyRespawnPart02},
+			EntityValueIsLess{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart02},
+		},
+		Actions = 
+		{
+			EntityValueSet{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart02},
+		},
+	};
+
+	OnFigureRespawnEvent
+	{
+		WaitTime = 5,
+		X = GetEntityX(),
+		Y = GetEntityY(),
+		Conditions = 
+		{
+			MapValueIsEqual{Name = "mv_MineguardsKilled", Value = MyRespawnPart03},
+			EntityValueIsLess{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart03},
+		},
+		Actions = 
+		{
+			EntityValueSet{Name = "ev_ISpawnedAtCounter", Value = MyRespawnPart03},
+		},
+	};
+
+
+
+	OnIdleGoHomeFake
+	{
+		X = 496.318,
+   		Y = 165.291,
+		Range = 8,
+		UpdateInterval = 0,
+		Conditions = 
+		{
+		},
+		Actions = 
+		{
+		},
+		HomeActions = 
+		{
+		},
+	};
+
+  
+}

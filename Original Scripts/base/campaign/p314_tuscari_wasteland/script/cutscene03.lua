@@ -1,0 +1,112 @@
+---------------------------------------------------------------------------------
+----
+----		3. Cutscene:
+----
+----		Sobald entweder Shygalla getötet wurde oder die Opfer
+----		erbracht wurden
+----
+----		Realm rüstet auf und schickt Truppen los
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P314_Cutscene03Begin"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 625.06, Y = 81.84, Z = 474.48, LookAtX = 625.24, LookAtY = 81.32, LookAtZ = 475.31},
+--			EntityTimerStart {Name = "et_Cutscene"},	
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ShygallaDead01", Tag = "Aramin"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 402.31, Y = 107.85, Z = 578.85, LookAtX = 402.50, LookAtY = 107.32, LookAtZ = 579.68},
+--			-- Blick auf einen der Greifenhorste
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 503.12, Y = 64.51, Z = 487.70, LookAtX = 502.23, LookAtY = 64.07, LookAtZ = 487.58},
+--			CutsceneSay	{TextTag = "ShygallaDead02", Tag = "Sorok"},
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ShygallaDead03", Tag = "Sorok"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P314_CS03Finished"},
+--			},
+--	},
+--	
+--}

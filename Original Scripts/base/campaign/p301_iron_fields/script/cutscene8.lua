@@ -1,0 +1,236 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene8",
+--		Conditions =
+--		{
+--			FigureIsInEntityRange	{Tag = "pl_HumanAvatar", TargetTag = "Ur", Range = 20},
+--			QuestIsActive {Quest = "TalkToUr"},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene8",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene8"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar11", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur1", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar12", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong7", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur2", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong8", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur3", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong9", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 46},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur4", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 52},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar13", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 58},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur5", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 64},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur6", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 70},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur7", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 76},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar14", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 80},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Ur8", Tag = "Ur"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene8", Seconds = 86},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				MapTimerStart {Name = "mt_P301_TalkedToUr"},
+--				QuestSetSolved {Quest = "TalkToUr"},
+--				QuestSetSolved {Quest = "ProtectNightsong"},
+--				QuestSetSolved {Quest = "IronFieldsPart2WarnFortress"},
+--				QuestSetSolved {Quest = "Chapter1ComingHome"},
+--				QuestSetSolved {Quest = "Prolog"},
+--				QuestSetActive {Quest = "SF2_1_Akt"},
+--				QuestSetActive {Quest = "1_Kapitel"},
+--				QuestSetActive {Quest = "SchattenliedMustLive"},
+--				QuestSetActive {Quest = "IronFieldsPart3ToNorimar"},
+--				
+--			},
+--	},
+--};
+--
+--	

@@ -1,0 +1,162 @@
+---------------------------------------------------------------------------------
+----
+----		2. Cutscene:
+----
+----		Triumph Einar und Karan
+----
+----		Planung fürs weitere Vorgehen
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P307_Cutscene02"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 209.70, Y = 19.64, Z = 215.63, LookAtX = 209.70, LookAtY = 19.19, LookAtZ = 216.52},
+--			EntityTimerStart {Name = "et_Cutscene"},		
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated01", Tag = "Einar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated02", Tag = "Einar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated03", Tag = "pl_HumanAvatar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated04", Tag = "Matricus"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated05", Tag = "Einar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated06", Tag = "Einar"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 35},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated07", Tag = "Einar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 40},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "ClansDefeated08", Tag = "Einar"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 45},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P307_CS02Finished"},
+--				
+--				-- InfoOucryFürQA
+--				FigureOutcry{TextTag = "QAInfo02", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	
+--}

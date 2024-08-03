@@ -1,0 +1,312 @@
+---------------------------------------------------------------------------------
+----
+----		Zu Beginn der Map
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "ShalLabor",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_CutsceneStart"},
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "ShalLabor",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 103.48, Y = 28.77, Z = -13.13, LookAtX = 103.39, LookAtY = 28.30, LookAtZ = -12.25},
+--			FigureRun	{Tag = "Wache02", X = 95, Y = 24},
+--			FigureRun	{Tag = "Wache04", X = 95, Y = 24},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "Sorvina"},
+--			FigureLookAtEntity	{Tag = "Sorvina", TargetTag = "pl_HumanAvatar"},			
+--		}
+--	},
+----  Dialog Sorvina:
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 3},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Sorvina", TextTag = "Sorvina01"},
+--			FigureStop	{Tag = "Wache02"},
+--			FigureStop	{Tag = "Wache04"},
+--		}
+-- 	},
+----  Effekte Teleport:
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 6},
+--		},
+--		Actions =
+--		{
+--			EffectStart	{Tag = "Sorvina", File = "Effect_Spawn_Unit"},	
+--			EffectStart	{Tag = "pl_HumanAvatar", File = "Effect_Spawn_Unit"},
+--			EffectStart	{Tag = "pl_HumanHeroBor", File = "Effect_Spawn_Unit"},
+--			EffectStart	{Tag = "pl_HumanHeroLya", File = "Effect_Spawn_Unit"},
+--			EffectStart	{Tag = "pl_HumanHeroMordecay", File = "Effect_Spawn_Unit"},
+--		}
+-- 	},
+--				
+---- Sorvina und Avatar teleportieren sich weg
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 9},
+--		},
+--		Actions =
+--		{
+--			
+--			FigureTeleport	{Tag = "Sorvina", X = 102, Y = 128},
+--			FigureTeleport	{Tag = "pl_HumanAvatar", X = 102, Y = 111},
+--			FigureTeleport	{Tag = "pl_HumanHeroBor", X = 84, Y = 123},
+--			FigureTeleport	{Tag = "pl_HumanHeroLya", X = 88, Y = 119},
+--			FigureTeleport	{Tag = "pl_HumanHeroMordecay", X = 119, Y = 120},
+--			
+--		}
+--	},
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 12},
+--		},
+--		Actions =
+--		{
+--			EffectStart	{Tag = "Sorvina", File = "Effect_Spawn_Unit"},  
+--			EffectStart	{Tag = "pl_HumanAvatar", File = "Effect_Spawn_Unit"},  
+--			EffectStart	{Tag = "pl_HumanHeroBor", File = "Effect_Spawn_Unit"},
+--			EffectStart	{Tag = "pl_HumanHeroLya", File = "Effect_Spawn_Unit"},
+--			EffectStart	{Tag = "pl_HumanHeroMordecay", File = "Effect_Spawn_Unit"},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "Sorvina"},
+--			FigureLookAtEntity	{Tag = "Sorvina", TargetTag = "pl_HumanAvatar"},	
+--			CameraSet {X = 101.72, Y = 64.74, Z = 72.57, LookAtX = 101.72, LookAtY = 64.07, LookAtZ = 73.31},
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina02"},
+--		}
+--	},
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 18},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--		CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina03"},
+--			
+--		}
+--	},
+--
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 25},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina04"},
+--			
+--		}
+--	},
+--	-- Dialog Malacay im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 31},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {TextTag = "Malacay01"},
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 38},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Ur", TextTag = "Ur01"},
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 44},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina05"},	
+--		}
+--	},
+--	
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 50},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina06"},
+--		}
+--	},
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 56},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina07"},
+--		}
+--	},
+---- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 62},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Leibwache01", TextTag = "Leibgarde01"},
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 68},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina08"},
+--			MapFlagSetTrue	{Name = "mf_MalarSpawn"},
+--			
+--		}
+--	},
+--	
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 72},
+--		},
+--		Actions =
+--		{
+--			FigureKill	{Tag = "Leibwache01"},
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina09"},			
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 79},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Ur", TextTag = "Ur02"},	
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 85},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina10"},
+--		}
+--	},
+--	-- Dialog Sorvina im Labor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 92},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Sorvina", TextTag = "Sorvina11"},
+--		}
+--	},
+--	-- Sorvina teleportieren sich weg
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 98},
+--		},
+--		Actions =
+--		{
+--			EffectStart	{Tag = "Sorvina", File = "Effect_Spawn_Unit"},  
+--		}
+--	},
+--	-- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 100},
+--				
+--			},
+--			Actions =
+--			{
+--				FigureVanish	{Tag = "Sorvina"},
+--				MapFlagSetTrue	{Name = "mf_CutsceneStartEnded"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--}

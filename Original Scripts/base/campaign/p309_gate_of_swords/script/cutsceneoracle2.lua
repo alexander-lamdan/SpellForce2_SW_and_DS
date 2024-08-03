@@ -1,0 +1,153 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene am Orakel wenn man genug Kisten hat
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneOrakel",
+--		Conditions =
+--		{
+--			FigureIsInRange	{Range = 8, X = 143, Y = 505, Tag = "pl_HumanAvatar"},
+--			QuestIsActive {Quest = "FindFlowers"},
+--			MapValueIsGreaterOrEqual {Name = "mv_P309_PlayerFlowers", Value = 4},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneOrakel",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			MapFlagSetTrue {Name = "mf_P309_CutsceneBackToOracleBegin"},
+--			CutsceneBegin {},
+--			CameraSet {X = 163.54, Y = 71.50, Z = 506.90, LookAtX = 162.57, LookAtY = 71.28, LookAtZ = 506.97},
+--			EntityTimerStart {Name = "et_CutsceneBackToOracleOracle"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel4", Tag = "Oracle"},
+--				
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar7", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel5", Tag = "Orakel"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel6", Tag = "Orakel"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel7", Tag = "Orakel"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel8", Tag = "Oracle"},
+--				CutsceneSay	{TextTag = "Orakel9", Tag = "Oracle"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBackToOracleOracle", Seconds = 35},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneBackToOracleEnd"},
+--				QuestSetSolved {Quest = "FindFlowers"},
+--				QuestSetSolved {Quest = "GoSPart3Oracle"},
+--				QuestSetActive {Quest = "GoSPart4Fireforge"},
+--				QuestSetActive {Quest = "ToUramGor"},
+--				
+--				
+--				AvatarFlagSetTrue {Name = "af_P309_Pfuschen"}
+--			},
+--	},
+--	OnEvent
+--	{
+--		Conditions = 
+--		{
+--			AvatarFlagIsTrue {Name = "af_P309_CutsceneBackToOracleEnd"},
+--			MapValueIsGreater	{Name = "mv_P309_PlayerFlowers", Value = 0},
+--			
+--		},
+--		Actions =
+--		{
+--			AvatarItemMiscTake	{Player = "default", ItemId = 75, Amount = 1},
+--			MapValueSubtract {Name = "mv_P309_PlayerFlowers", Value = 1},
+--		}
+--	}
+--};
+--
+--	

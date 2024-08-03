@@ -1,0 +1,38 @@
+
+  
+
+State
+{	
+	StateName = "INIT",
+	
+
+	OnFigureSpawnOnlyWhenEvent
+	{
+		X = GetEntityX(),
+		Y = GetEntityY(),
+		Conditions = 
+		{
+			AvatarValueIsEqual{Name = "av_P409_MosaicOfDeath", Value = part},
+			AvatarIsNotTalking	{},	GameInterfaceIsVisible	{},
+		},
+		Actions = 
+		{
+		},
+	
+	};
+	
+   OnIdleGoHomeFake
+   {
+   	X = GetEntityX(),
+   	Y = GetEntityY(),
+   	Conditions = 
+   	{
+   	},
+   	Actions = 
+	{
+	},
+	HomeActions =
+	{
+	},
+   },
+}

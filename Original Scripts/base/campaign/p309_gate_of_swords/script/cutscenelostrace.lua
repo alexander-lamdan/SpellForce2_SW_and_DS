@@ -1,0 +1,84 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene am Orakel wenn man genug Kisten hat
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneLostRace",
+--		Conditions =
+--		{
+--			MapValueIsGreaterOrEqual {Name = "mv_P309_MardragFlowers", Value = 4},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneLostRace",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 163.54, Y = 71.50, Z = 506.90, LookAtX = 162.57, LookAtY = 71.28, LookAtZ = 506.97},
+--			EntityTimerStart {Name = "et_CutsceneOracleLostRace"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracleLostRace", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Mardrag2", Tag = "Mardrag"},
+--				
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracleLostRace", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Orakel10", Tag = "Orakel"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneOracleLostRace", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				-- !!! Game Over
+--			},
+--	},
+--};
+--
+--	

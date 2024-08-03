@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "TowerSpawn02Sammelscript.lua")

@@ -1,0 +1,163 @@
+---------------------------------------------------------------------------------
+----
+----		Die zweite Cutscene
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "SchattenliedCutscene",
+--		Conditions =
+--		{
+--			MapTimerIsElapsed	{Name = "mt_CutsceneSchattenliedTimer", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_Timer"},
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "SchattenliedCutscene",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 116.24, Y = 54.74, Z = 54.63, LookAtX = 116.24, LookAtY = 54.07, LookAtZ = 55.37},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "Schattenlied"},
+--					
+--		}
+--	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 2},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Schattenlied", TextTag = "Schattenlied01"},
+--			
+--		}
+-- 	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 7},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "pl_HumanAvatar", TextTag = "Avatar01"},
+--			
+--			
+--		}
+--	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 12},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Schattenlied", TextTag = "Schattenlied02"},
+--			
+--			
+--		}
+--	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 17},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "pl_HumanAvatar", TextTag = "Avatar02"},
+--		}
+--	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 23},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay { Tag = "Schattenlied", TextTag = "Schattenlied03"},
+--			
+--		}
+--	},
+--
+-----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 29},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay { Tag = "Schattenlied", TextTag = "Schattenlied04"},
+--			
+--		}
+--	},
+----  Dialog Schattenlied
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Timer", Seconds = 34},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay { Tag = "Schattenlied", TextTag = "Schattenlied05"},
+--			
+--		}
+--	},
+--	-- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Timer", Seconds = 40},
+--				
+--			},
+--			Actions =
+--			{
+--				
+--				MapFlagSetTrue	{Name = "mf_CutsceneSchattenliedEnded"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--}

@@ -1,0 +1,97 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene wenn der Spieler am Tor ist und die Bäume dabei hat
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		
+--		Conditions =
+--		{
+--			SetUpdateInterval {Steps = 10},
+--			FigureIsDead {Tag = "Blocking1"},
+--			FigureIsDead {Tag = "Blocking2"},
+--			FigureIsDead {Tag = "Blocking3"},
+--			FigureIsDead {Tag = "Blocking4"},
+--			FigureIsDead {Tag = "Blocking5"},
+--			FigureIsDead {Tag = "Blocking6"},
+--			FigureIsDead {Tag = "Blocking7"},
+--			FigureIsDead {Tag = "Blocking8"},
+--			FigureIsDead {Tag = "Blocking9"},
+--			FigureIsDead {Tag = "Blocking10"},
+--			FigureIsDead {Tag = "Blocking11"},
+--			FigureIsDead {Tag = "Blocking12"},
+--			FigureIsDead {Tag = "Blocking13"},
+--			FigureIsDead {Tag = "Blocking14"},
+--			FigureIsDead {Tag = "Blocking15"},
+--			FigureIsDead {Tag = "Blocking16"},
+--			FigureIsDead {Tag = "Blocking17"},
+--			FigureIsDead {Tag = "Blocking18"},
+--			FigureIsDead {Tag = "Blocking19"},
+--			FigureIsDead {Tag = "Blocking20"},
+--			FigureIsDead {Tag = "Blocking21"},
+--			QuestIsSolved {Quest = "AwakeTreants"},
+--			PlayerFigureIsInRange {Range = 30, X = 645, Y = 484},
+--			AvatarIsNotTalking{}, GameInterfaceIsVisible{}, -- die beiden gehören zusammen, deswegen beide in einer zeile!
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_P301_CutsceneDelay"}	
+--		},
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene10",
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_P301_CutsceneDelay", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--		}
+--	}
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene10",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene10"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene10", Seconds = 3},
+--			},
+--			Actions =
+--			{
+--				ObjectVanish {Tag = "DespawnBlocking"},
+--				CameraStop {},			
+--				CutsceneEnd {},
+--				MapTimerStart {Name = "mt_P301_OutcriesAfterDragonFight"},
+--				--FigureOutcry	{TextTag = "TothLar1", Tag = "TothLar"},
+--			},
+--	},
+--};
+--
+--	

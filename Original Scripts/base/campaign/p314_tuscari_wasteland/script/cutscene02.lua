@@ -1,0 +1,183 @@
+---------------------------------------------------------------------------------
+----
+----		2. Cutscene:
+----
+----		Sobald die Festung befreit wurde
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P314_Cutscene02Begin"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 377.86, Y = 73.21, Z = 153.11, LookAtX = 377.86, LookAtY = 72.27, LookAtZ = 153.45},
+--			FigureTeleport	{Tag = "Eisenfuerst", X = 372 , Y = 172},
+--			EntityTimerStart {Name = "et_Cutscene"},	
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree01", Tag = "Eisenfuerst"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree02", Tag = "Eisenfuerst"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree03", Tag = "Reetho"},
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree04", Tag = "Reetho"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree05", Tag = "Eisenfuerst"},
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree06", Tag = "Reetho"},
+--		}
+--	},
+--
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 35},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree07", Tag = "Reetho"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 40},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree08", Tag = "Reetho"},
+--		},
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 45},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree09", Tag = "Eisenfuerst"},
+--		}
+--	},
+--
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 50},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "CitadelFree10", Tag = "Eisenfuerst"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 55},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P314_CS02Finished"},
+--			},
+--	},
+--	
+--}

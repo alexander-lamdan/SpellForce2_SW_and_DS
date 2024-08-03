@@ -1,0 +1,125 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "KorCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Kor",
+--		Conditions =
+--		{
+--			FigureIsInRange	{Range = 8, X = 277, Y = 626, Tag = "pl_HumanAvatar"},
+--			-- !!! Kaputt !!!
+--			PlayerFigureIsNotInRange	{Range = 30, X = 307, Y = 638, Player = "pl_EnemyPact"},
+--			PlayerFigureIsNotInRange	{Range = 30, X = 268, Y = 611, Player = "pl_EnemyPact"},
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Kor",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 298.95, Y = 26.20, Z = 638.60, LookAtX = 298.09, LookAtY = 26.16, LookAtZ = 638.09},
+--			EntityTimerStart {Name = "et_CutsceneKor"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor1", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar1", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor2", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor3", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor4", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneKor", Seconds = 30},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneKorEnd"},
+--				PlayerActivate	{Player = "pl_EnemyPact"},
+--				PlayerKitTransfer {PlayerKit = "pk_Kor"},
+--				FigurePlayerTransfer {Tag = "Kor", Player = "pl_Human"},
+--				
+--				QuestSetSolved {Quest = "ReachKor"},
+--				QuestSetActive {Quest = "ThroughTheGate"},
+--			},
+--	},
+--};
+--
+--	

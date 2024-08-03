@@ -1,0 +1,147 @@
+---------------------------------------------------------------------------------
+----
+----		Wenn der Spieler mit Matricus gesprochen hat bekommt er den Aufbau übergeben
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Matricus",
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P303_TalkedToMatricus"},
+--			AvatarIsNotTalking{}, GameInterfaceIsVisible{}, -- die beiden gehören zusammen, deswegen beide in einer zeile!
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_CutsceneMatricus"},
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Matricus",
+--	-- 
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 195.10, Y = 47.11, Z = 336.14, LookAtX = 196.01, LookAtY = 46.70, LookAtZ = 336.22},
+--			
+--			FigureRun {Tag = "Helfdan", X = 193, Y = 336},
+--		}
+--	},
+--	-- Ale 4 Sekunden labert einer was:
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 4},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Helfdan", TextTag = "Helfdan1"},
+--			
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 8},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Helfdan", TextTag = "Helfdan2"}
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 12},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 216.77, Y = 47.11, Z = 345.14, LookAtX = 215.81, LookAtY = 46.96, LookAtZ = 344.90},
+--			CutsceneSay {Tag = "Matricus", TextTag = "Matricus1"},
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 16},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 347.62, Y = 47.11, Z = 376.25, LookAtX = 346.78, LookAtY = 46.60, LookAtZ = 376.46},
+--			CutsceneSay {Tag = "Matricus", TextTag = "Matricus2"},
+--		},
+--		
+--	},	
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 375.30, Y = 47.45, Z = 188.82, LookAtX = 375.25, LookAtY = 47.21, LookAtZ = 189.78},
+--			CutsceneSay {Tag = "Matricus", TextTag = "Matricus3"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 24},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 682.20, Y = 53.00, Z = 76.20, LookAtX = 681.47, LookAtY = 52.70, LookAtZ = 76.82},
+--			CutsceneSay {Tag = "Matricus", TextTag = "Matricus4"},
+--		}
+--	},
+--	-- Ab hier greifen die Orkse die Stadt an
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneMatricus", Seconds = 30},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				PlayerKitTransfer {PlayerKit = "pk_PlayerAllies", Player = "pl_Human"},
+--				PlayerActivate {Player = "pl_Clans"},
+--			
+--				QuestSetSolved {Quest = "RushwaterPart1ConvoiToTown"}, 
+--				QuestSetSolved {Quest = "RushwaterPart2SpeakToMatricus"},
+--				QuestSetActive {Quest = "RushwaterPart3FightOrcs"},
+--				QuestSetActive {Quest = "DefendLyraine"},
+--				QuestSetActive {Quest = "DestroyOrcCamps"},
+--				AvatarFlagSetTrue {Name = "af_P303_CastleCutsceneEnd"},
+--				MapTimerStart {Name = "mt_P303_Brake"},
+--				
+--				AvatarXPGive {Amount = 400},
+--			}
+--	}
+--}

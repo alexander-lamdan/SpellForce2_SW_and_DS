@@ -1,0 +1,96 @@
+---------------------------------------------------------------------------------
+----
+----		1. Cutscene:
+----
+----		Schattenlied und Avatar am Portal von Crystal Wastes
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P319_Cutscene01Begin"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 138.06, Y = 31.72, Z = 63.86, LookAtX = 138.09, LookAtY = 31.16, LookAtZ = 64.69},
+--			EntityTimerStart {Name = "et_Cutscene"},	
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalWastes_01", Tag = "Schattenlied"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalWastes_02", Tag = "pl_HumanAvatar"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed{Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "PortalWastes_03", Tag = "Schattenlied"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed{Name = "et_Cutscene", Seconds = 20},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P319_CS01Finished"},
+--			},
+--	},
+--	
+--}

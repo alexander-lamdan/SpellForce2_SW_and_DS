@@ -1,0 +1,45 @@
+--State
+--{
+--	StateName = "Init",
+--	OnFigureSpawnOnlyWhenEvent
+--	{
+--		X = 285,
+--		Y = 31,
+--		Conditions =
+--		{
+--			MapTimerIsElapsed {Name = "mt_P301_OutcriesAfterShadowFight", Seconds = 2+ spawnDelay*2}
+--		},
+--		Actions = 
+--		{
+--		},
+--	},
+--	OnIdleGoHomeFake
+--	{
+--		Range = 1,
+--		Conditions =
+--		{
+--		},
+--		HomeActions =
+--		{
+--			EntityFlagSetTrue {Name = "ef_P301_Parked"},
+--			FigurePlayerTransfer {Tag = "GivenArmy".. variety},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		GotoState = "ArmyParked",
+--		Conditions =
+--		{
+--			EntityFlagIsTrue {Name = "ef_P301_Parked"},
+--		},
+--		Actions =
+--		{
+--			
+--		}
+--	}
+--}
+--
+--State
+--{
+--	StateName = "ArmyParked"
+--}

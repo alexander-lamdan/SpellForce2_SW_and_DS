@@ -1,0 +1,309 @@
+---------------------------------------------------------------------------------
+----
+----		Dialog mit Ur
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene13",
+--		Conditions =
+--		{
+--			FigureIsDead {Tag = "Hydra"},
+--			QuestIsActive {Quest = "KillHydra"},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene13",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene13"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar22", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar2", Tag = "FalkmarMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar23", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar24", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar3", Tag = "FalkmarMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Io2", Tag = "IoMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar4", Tag = "FalkmarMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar25", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 46},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Io3", Tag = "IoMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 50},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar26", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 54},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Falkmar5", Tag = "FalkmarMission"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 58},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar27", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 63},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong12", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 67},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar27a", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 71},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong12a", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 77},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar27b", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 81},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar27c", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 87},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar28", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 91},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong13", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 96},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar29", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 100},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong14", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 106},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Malacay1", Tag = "Malacay"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene13", Seconds = 110},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				QuestSetSolved {Quest = "KillHydra"},
+--				QuestSetSolved {Quest = "IronfieldsPart22SaveShaikur"},
+--				QuestSetSolved {Quest = "4_Kapitel"},
+--				QuestSetSolved {Quest = "SF2_1_Akt"},
+--				QuestSetActive {Quest = "SF2_2_Akt"},
+--				QuestSetActive {Quest = "1_KapitelAkt2"},
+--				QuestSetActive {Quest = "IronFieldsPart23FleeToGoS"},
+--			},
+--	},
+--};
+--
+--	

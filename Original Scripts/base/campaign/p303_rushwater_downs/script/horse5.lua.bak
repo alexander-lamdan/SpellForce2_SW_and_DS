@@ -1,0 +1,120 @@
+-- erzeuge den INIT state, der überall vorhanden sein muss
+State
+{	
+	StateName = "INIT",
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+		},
+		Actions =
+		{
+		},
+		GotoState = "Ambush1"
+	},
+}
+
+State
+{
+	StateName = "Ambush1",
+	OnIdleGoHomeFake
+	{
+		X = 150, Y = 100,
+		Conditions = 
+		{
+			AvatarFlagIsTrue	{Name = "af_P303_FirstAmbushDead"},
+			EntityValueIsLess	{Name = "ev_HomeTest", Value = 1},
+		},
+		Actions = 
+		{
+		},
+		OneTimeHomeActions =
+		{
+			EntityValueAdd	{Name = "ev_HomeTest", Value = 1},
+		},
+	},
+	OnIdleGoHomeFake
+	{
+		X = 202, Y = 98,
+		Conditions = 
+		{
+			EntityValueIsEqual	{Name = "ev_HomeTest", Value = 1},
+		},
+		Actions = 
+		{
+		},
+		OneTimeHomeActions =
+		{
+			EntityValueAdd	{Name = "ev_HomeTest", Value = 1},
+		},
+	},
+	OnIdleGoHomeFake
+	{
+		X = 206, Y = 111,
+		Conditions = 
+		{
+			EntityValueIsEqual	{Name = "ev_HomeTest", Value = 2},
+		},
+		Actions = 
+		{
+		},
+		OneTimeHomeActions =
+		{
+			EntityValueAdd	{Name = "ev_HomeTest", Value = 1},
+		},
+	},
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+			AvatarFlagIsTrue {Name = "af_P303_ReachedRiver"},
+		},
+		Actions =
+		{
+		},
+		GotoState = "Ambush2"
+	},
+};
+
+State
+{
+	StateName = "Ambush2",
+	OnIdleGoHomeFake
+	{
+		X = 298, Y = 188,
+		Conditions = 
+		{
+			AvatarFlagIsTrue	{Name = "af_P303_SecondAmbushDead"},
+		},
+		Actions = 
+		{
+		},
+	},
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+			AvatarFlagIsTrue {Name = "af_P303_SecondAmbushRiver"},
+		},
+		Actions =
+		{
+		},
+		GotoState = "Ambush3"
+	},
+};
+
+State
+{
+	StateName = "Ambush3",
+	OnIdleGoHomeFake
+	{
+		X = 300, Y = 239,
+		Conditions = 
+		{
+			AvatarFlagIsTrue	{Name = "af_P303_ThirdAmbushDead"},
+		},
+		Actions = 
+		{
+		},
+	},
+};

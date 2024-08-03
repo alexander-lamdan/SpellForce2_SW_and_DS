@@ -1,0 +1,173 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn Drachenlurch
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "IntroDrag",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "IntroDrag",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 311.85, Y = 15.85, Z = 30.61, LookAtX = 311.73, LookAtY = 15.64, LookAtZ = 31.58},
+--			EntityTimerStart {Name = "et_CutsceneIntroDrag"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord1", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "NightSong1", Tag = "NightSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 16},
+--				-- Hier alle Pinoiere für die Cutscene rein
+--				OR
+--				{
+--					FigureIsAlive {Tag = "Pioneer1"},
+--					FigureIsAlive {Tag = "Pioneer2"},
+--				},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord2", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 16},
+--				-- Hier alle Pinoiere für die Cutscene rein
+--				AND
+--				{
+--					FigureIsAlive {Tag = "Pioneer1"},
+--					FigureIsAlive {Tag = "Pioneer2"},
+--				},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord3", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CameraSet {X = 347.87, Y = 20.99, Z = 631.11, LookAtX = 347.75, LookAtY = 21, LookAtZ = 632.10},
+--				CutsceneSay	{TextTag = "TothLar1", Tag = "TothLar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 26},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sorvina1", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 32},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "TothLar2", Tag = "TothLar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 38},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "TothLar3", Tag = "TothLar"},
+--				FigureTeleport {Tag = "Sorvina", X = 304, Y = 609},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 44},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "TothLar4", Tag = "TothLar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneIntroDrag", Seconds = 50},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneIntroDragEnd"},
+--				
+--			},
+--	},
+--};
+--
+--	

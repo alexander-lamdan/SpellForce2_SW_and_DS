@@ -1,0 +1,84 @@
+-------------------------------------------------------------------------------
+--
+--		Cutscene wenn der Spieler mit dem Konvoi ankommt
+--
+-------------------------------------------------------------------------------
+
+
+State
+{
+	StateName = "INITCutscene",
+	OnOneTimeEvent
+	{
+		GotoState = "Free",
+		Conditions =
+		{
+		},
+		Actions =
+		{
+		},
+	},
+}
+
+State
+{
+	StateName = "Free",
+	-- Sind alle Attentäter tot wir das Flag zum Nachrücken gesetzt
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+			AvatarFlagIsTrue {Name = "af_P303_Cutscene"},
+		},
+		Actions =
+		{
+			CutsceneBegin {},
+			CameraSet {X = 306.88, Y = 31.79, Z = 226.27, LookAtX = 306.91, LookAtY = 31.79, LookAtZ = 227.27},
+			EntityTimerStart {Name = "et_Cutscene"},
+			
+			FigureGoto {Tag = "PlayerControlledAvatar", X = 307, Y = 274},
+			
+			FigureGoto {Tag = "Horse1", X = 292, Y = 354},
+			FigureGoto {Tag = "Horse2", X = 290, Y = 354},
+			FigureGoto {Tag = "Horse3", X = 288, Y = 350},
+			FigureGoto {Tag = "Horse4", X = 290, Y = 350},
+			FigureGoto {Tag = "Horse5", X = 288, Y = 356},
+		}
+	},
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+		},
+		Actions =
+		{
+			CameraSet {X = 310.88, Y = 35.79, Z = 220.27, LookAtX = 306.91, LookAtY = 31.79, LookAtZ = 227.27},
+		}
+	},
+	--OnOneTimeEvent
+	--{
+	--	Conditions =
+	--	{
+	--		EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+	--	},
+	--	Actions =
+	--	{
+	--		CameraStop {},
+	--	}
+	--},
+	-- Ab hier greifen die Orkse die Stadt an
+	OnOneTimeEvent
+	{
+			Conditions =
+			{
+				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+			},
+			Actions =
+			{
+				CameraStop {};				
+				CutsceneEnd {}, 
+
+			}
+	}
+}

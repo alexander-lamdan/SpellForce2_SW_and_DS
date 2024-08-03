@@ -1,0 +1,58 @@
+--
+--State
+--{
+--	StateName = "LokharState",
+--	
+--	OnToggleEvent	
+--	{
+--		EventName = "LokharEvent",
+--		OnConditions =
+--		{
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 701},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 702},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 703},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 704},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 705},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 706},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 707},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 708},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 709},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 710},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 711},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 712},
+--				AvatarHasNotItemEquipped	{Player = "pl_Human", ItemId = 713},
+--				
+--		},
+--		OnActions = 
+--		{
+--			FigureAbilityAdd {AbilityId = Ability.Immortal, Tag = "Lokar"},
+--		},
+--		OffConditions =
+--		{
+--			OR
+--			{
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 701},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 702},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 703},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 704},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 705},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 706},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 707},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 708},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 709},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 710},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 711},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 712},
+--				AvatarHasItemEquipped	{Player = "pl_Human", ItemId = 713},
+--			},
+--		},
+--		OffActions = 
+--		{
+--			FigureAbilityRemove	{Tag = "Lokar", AbilityId = Ability.Immortal},
+--		},
+--	},
+--	
+--
+--	
+--};
+--

@@ -1,0 +1,7 @@
+Attack1Condition = "af_P307_KaranAttack01"
+Attack2Condition = "af_P307_KaranAttack02"
+Attack3Condition = "af_P307_KaranAttack03"
+
+MyTroop = "Karan"
+
+dofile("base/map/Campaign/P307_The_Needle/Script/AlliedTroops_SharedScript.lua")

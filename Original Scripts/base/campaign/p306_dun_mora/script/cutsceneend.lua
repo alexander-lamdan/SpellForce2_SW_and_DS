@@ -1,0 +1,133 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene nach Sieg
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneEnd",
+--		Conditions =
+--		{
+--			--FigureIsInEntityRange	{Tag = "pl_HumanAvatar", TargetTag = "Sansha", Range = 3},
+--			--FigureIsInRange	{Range = 3, X = 391, Y = 422, Tag = "pl_HumanAvatar"},
+--			MapFlagIsTrue	{Name = "mf_CutsceneEndInit"},
+--			AvatarIsNotTalking	{},	GameInterfaceIsVisible	{},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneEnd",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 344.761, Y = 43.627, Z = 377.589, LookAtX = 342.092, LookAtY = 42.2587, LookAtZ = 377.511},
+--			
+--			EntityTimerStart {Name = "et_CutsceneEnd"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Io2", Tag = "Io"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 8},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar6", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 12},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Io3", Tag = "Io"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 18},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha5", Tag = "Sansha"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha6", Tag = "Sansha"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 30},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Io4", Tag = "Io"},
+--			},
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneEnd", Seconds = 45},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {},
+--				QuestSetSolved	{Player = "default", Quest = "IoMustLiveDunMora"},
+--				QuestSetActive	{Player = "default", Quest = "ReturnToGF"}, 
+--    		},
+--	},
+--};
+--
+--	

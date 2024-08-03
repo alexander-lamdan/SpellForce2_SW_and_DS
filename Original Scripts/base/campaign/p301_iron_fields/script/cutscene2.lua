@@ -1,0 +1,108 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Lyas Haus
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "Init",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene2",
+--		Conditions =
+--		{
+--			MapFlagIsTrue {Name = "mf_P301_CutsceneLyasHouse"},
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Cutscene2",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_Cutscene2"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene2", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				PlayerHeroAdd {Player = "pl_Human", HeroId = 9},
+--				FigureHeroSpawn {Player = "default", Tag = "HeroLya", X = 91, Y = 439, Direction = 90},
+--				CutsceneSay	{TextTag = "Bor5", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene2", Seconds = 8},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar2_1", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene2", Seconds = 12},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor7", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene2", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Bor8", Tag = "Bor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene2", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				--!!! Muss noch rein aber im Moment klappt das wiederbelben nicht und ich weiﬂ nicht warum
+--				FigureKill	{Tag = "pl_HumanHeroLya"},
+--				QuestSetActive {Quest = "ReviveLya"},
+--				MapTimerStart {Name = "mt_P301CutsceneOneSafetyTimer"},
+--				AvatarXPGive {Amount = 200}
+--			},
+--	},
+--};
+--
+--	

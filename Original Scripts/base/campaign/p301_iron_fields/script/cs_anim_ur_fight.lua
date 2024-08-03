@@ -1,0 +1,55 @@
+--State
+--{	
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			MapFlagIsTrue {Name = "mf_CS_B_01_Ur_Fight_Anim"},
+--		},
+--		Actions =
+--		{
+--			FigureAnimPlayOnce	{Tag = "Ur", File = "base/gfx/figures/boss/figure_boss_dragon_ur_special_fight_1.ska"}, -- 12.50s
+--			EntityTimerStart {Name = "et_timer001"},
+--		},
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_timer001", Seconds = 12.5},
+--		},
+--		Actions =
+--		{
+--			FigureAnimPlayOnce	{Tag = "Ur", File = "base/gfx/figures/boss/figure_boss_dragon_ur_special_fight_2.ska"}, -- 9.58s
+--			EntityTimerStart {Name = "et_timer002"},
+--		},
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_timer002", Seconds = 9.58},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStop {Name = "et_timer001"},
+--			EntityTimerStop {Name = "et_timer002"},
+--		},
+--		GotoState = "EndScript",
+--	},
+--};
+--	
+--State
+--{	
+--	StateName = "EndScript",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--};

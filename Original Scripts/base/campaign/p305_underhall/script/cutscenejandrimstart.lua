@@ -1,0 +1,371 @@
+---------------------------------------------------------------------------------
+----
+----		Wenn man mit WindhammerGhost redet
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Mine",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Mine",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 89.77, Y = 70.69, Z = 89.92, LookAtX = 89.92, LookAtY = 70.02, LookAtZ = 90.64},
+--			EntityTimerStart {Name = "et_CutsceneJandrimStart"},
+--			
+--		}
+--	},
+----  Dialog zwischen Jandrim, Skjadir und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 1},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Skjadir_Blutaxt", TextTag = "Sjadir01"},
+--			
+--		}
+-- 	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 4},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim02"},
+--			
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 7},
+--		},
+--		Actions =
+--		{
+--		
+--			CutsceneSay {Tag = "Skjadir_Blutaxt", TextTag = "Sjadir02"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay {Tag = "Skjadir_Blutaxt", TextTag = "Sjadir03"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 13},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim03"},
+--			
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 16},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay {Tag = "Skjadir_Blutaxt", TextTag = "Sjadir04"},
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 19},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim04"},
+--			
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 21},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "pl_HumanAvatar", TextTag = "Avatar05"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 24},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim05"},
+--			
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 27},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim06"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "pl_HumanAvatar", TextTag = "Avatar06"},
+--			FigureWalk	{Tag = "Jandrim", X = 125, Y = 227},
+--			FigureWalk	{Tag = "pl_HumanAvatar", X = 125, Y = 227},
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 33},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "pl_HumanAvatar", TextTag = "Avatar07"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 36},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim07"},
+--			--CameraSet {X = 122.16, Y = 85.79, Z = 68.89, LookAtX = 122.17, LookAtY = 85.13, LookAtZ = 169.63},
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 39},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim08"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 42},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim09"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 45},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim10"},
+--			
+--			
+--		}
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 48},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim11"},
+--			
+--			
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 51},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim12"},
+--			
+--			
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 54},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim13"},
+--			
+--			
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 57},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim14"},
+--			
+--			
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 60},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Jandrim", TextTag = "Jandrim15"},
+--			
+--			
+--		}
+--	},
+--
+--
+--
+--	-- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneJandrimStart", Seconds = 65},
+--				
+--			},
+--			Actions =
+--			{
+--				MapFlagSetTrue	{Name = "mf_CutsceneJandrimStartEnded"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--};

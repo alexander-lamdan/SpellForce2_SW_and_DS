@@ -1,0 +1,249 @@
+---------------------------------------------------------------------------------
+----
+----		Zu Beginn der Map
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene2",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "DemonGate",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "DemonGate",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			MapFlagIsTrue	{Name = "mf_UramGorPart2"},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_CutsceneTor"},
+--			CutsceneBegin {},
+--			CameraSet {X = 226.09, Y = 47.63, Z = 133.58, LookAtX = 227.05, LookAtY = 47.38, LookAtZ = 133.57},
+--			FigureWalk {Tag = "pl_HumanAvatar", X = 264, Y = 130},
+--			FigureRun {Tag = "Kor", X = 265, Y = 132},
+--		}
+--	},
+----	--Kor wird teleportiert wenn er zu weit weg steht
+----	OnOneTimeEvent
+----	{
+----		Conditions =
+----		{
+----			MapFlagIsTrue	{Name = "mf_UramGorPart2"},
+----			FigureIsNotInRange	{Tag = "Kor", Range = 15, X = 265, Y = 132},
+----		},
+----		Actions =
+----		{
+----			FigureTeleport	{Tag = "Kor", X = 252, Y = 149},
+----		}
+---- 	},
+---- 	--  Kor und Avatar begeben sich zum Truchsess
+----	OnOneTimeEvent
+----	{
+----		Conditions =
+----		{
+----			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 1},
+----		},
+----		Actions =
+----		{
+----			FigureWalk {Tag = "pl_HumanAvatar", X = 264, Y = 130},
+----			FigureRun {Tag = "Kor", X = 265, Y = 132},
+----		}
+---- 	},
+----  Kor zu Truchsess
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 8},
+--		},
+--		Actions =
+--		{
+--			FigureLookAtEntity	{Tag = "Truchsess", TargetTag = "pl_HumanAvatar"},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "Truchsess"},
+--			FigureLookAtEntity	{Tag = "Kor", TargetTag = "Truchsess"},
+--			CutsceneSay {Tag = "Kor", TextTag = "Gate_Kor01"},
+--		}
+-- 	},
+---- Dialog zwischen Truchsess und Avatar/Kor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 12},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess01"},
+--			
+--			
+--		}
+--	},
+---- Dialog zwischen Truchsess und Avatar/Kor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 16},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess02"},
+--			
+--			
+--		}
+--	},
+---- Dialog zwischen Truchsess und Kor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			FigureWalk {Tag = "Kor", X = 265, Y = 134},
+--			CutsceneSay {Tag = "Kor", TextTag = "Gate_Kor02"},
+--			
+--			
+--		}
+--	},	
+---- Kor zerkleinert den BannStein
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 21},
+--		},
+--		Actions =
+--		{
+--			
+--			EffectStart	{Tag = "BannStein", File = "EffectMichaTest"},
+--			
+--		}
+--	},	
+---- Dialog zwischen Truchsess und Avatar	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 22},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay {Tag = "pl_HumanAvatar", TextTag = "Gate_Avatar01"},
+--			ObjectVanish	{Tag = "TorBlocker04"},
+--			MapFlagSetTrue	{Name = "mf_DemonTorOpen"},
+--		}
+--	},
+---- Dialog zwischen Truchsess und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 26},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess03"},
+--		}
+--	},
+---- Dialog zwischen Truchsess und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess04"},
+--		}
+--	},
+---- Dialog zwischen Truchsess und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 34},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess05"},
+--		}
+--	},
+---- Dialog zwischen Truchsess und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 38},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Truchsess", TextTag = "Gate_Truchsess06"},
+--		}
+--	},
+--
+---- Truchsess teleportiert sich weg
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 39},
+--		},
+--		Actions =
+--		{
+--			EffectStart	{Tag = "Truchsess", File = "EffectMichaTest"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 40},
+--		},
+--		Actions =
+--		{
+--			FigureVanish	{Tag = "Truchsess"},
+--		}
+--	},
+--
+---- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 42},
+--			},
+--			Actions =
+--			{
+--				
+--				MapFlagSetTrue	{Name = "mf_CutsceneTorBeendet"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--}

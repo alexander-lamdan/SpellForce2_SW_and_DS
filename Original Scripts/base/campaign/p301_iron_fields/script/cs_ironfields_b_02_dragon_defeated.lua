@@ -1,0 +1,560 @@
+----************************************************************
+----**														**
+----**		Iron Fields Part II Dragon Defeated				**
+----**														**
+----************************************************************
+--
+---- Figuren die gerendert werden
+--local _tRenderList = CutsceneFigureRenderList{Tag = "Ur_Wounded"}
+--_tRenderList.tModFuncs =
+--{
+--	Add =
+--	{
+--		"'CS_B_02_Shaikan01'",
+--		"'CS_B_02_Shaikan02'",
+--		"'CS_B_02_Shaikan03'",
+--		"'CS_B_02_Shaikan04'",
+--		"'Sorvina'",
+--		"'TothLar'",
+--		"'Hydra'",
+--	}
+--}
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent	-- Cutscene startet etwas zeitverzögert
+--	{
+--		Conditions =
+--		{
+--			OR
+--			{
+--				AND
+--				{
+--					MapFlagIsTrue {Name = "mf_CutsceneB02"},
+--					MapFlagIsTrue {Name = "mf_P301_Mission"},
+--				},
+--				AND
+--				{
+--					-- Der Spieler hat das Haupthaus geclaimt und die Cutscene beginnt
+--					QuestIsActive {Quest = "GatherLenya"},
+--					PlayerHasResourceLenya {Player = "default", Amount = 800},
+--					-- Auch dummy
+--					MapFlagIsTrue {Name = "mf_P309_TalkedToFalkmar"},
+--					AvatarIsNotTalking {},
+--					GameInterfaceIsVisible {},
+--					FigureIsNotInCombat {Tag = "pl_HumanAvatar"},
+--				},
+--			},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_P301_CutsceneDelay"}	
+--		},
+--	};
+--	OnCutsceneFigureRespawnEvent -- Alle Teleports und Spawnings & Hydra geht zu Ur
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_P301_CutsceneDelay", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			-- Ausblenden der Figuren(siehe Liste, nur die werden angezeigt)
+--			_tRenderList,
+--			CutsceneBegin{},
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take01", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureVanish {Tag = "Ur"},
+--			-- verwundeter Ur wird gespawnt
+--			FigureNpcSpawn	{Tag = "Ur_Wounded", Level = 1, UnitId = 544, X = 57.1662, Y = 653.562, Team = "tm_Neutral"},
+--			FigureLookAtDirection {Tag = "Ur_Wounded", Direction = 308.434},
+--			-- Gefangene Schaikan schauen zu Ur
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan01", TargetTag = "CS_B_02_Ur_Wounded"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan02", TargetTag = "CS_B_02_Ur_Wounded"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan03", TargetTag = "CS_B_02_Ur_Wounded"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan04", TargetTag = "CS_B_02_Ur_Wounded"},			
+--			-- Sorvina, TothLar und Hydra werden teleportiert
+--			FigureTeleport {Tag = "Sorvina", X = 69.7827, Y = 642.308},
+--			FigureLookAtDirection {Tag = "Sorvina", Direction = 246.553},
+--			FigureTeleport {Tag = "TothLar", X = 61.9789, Y = 638.281},
+--			FigureLookAtDirection {Tag = "TothLar", Direction = 191.551},
+--			FigureTeleport {Tag = "Hydra", X = 65.9771, Y = 639.851},
+--			FigureLookAtDirection {Tag = "Hydra", Direction = 216.761},
+--			EntityTimerStart {Name = "et_CStimer"},
+--			-- Hydra geht zu Ur
+--			FigureSimpleWalk {Tag = "Hydra", X = 59.5576, Y = 645.947},
+--			-- Figuren werden in den Talkjob versetzt
+--			FigureCutsceneTalkJobSet {Tag = "Sorvina"},
+--			FigureCutsceneTalkJobSet {Tag = "TothLar"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		Tags = _tRenderList,
+--		GotoState = "Cutscene01",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene01",
+--	OnOneTimeEvent	-- Sorvina: Sorvina4
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--			--FigureIsIdle {Tag = "Hydra"},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take02", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},			
+--			CutsceneSay {TextTag = "Sorvina4", Tag = "Sorvina"},
+--			FigureCutsceneTalkJobSet {Tag = "Hydra"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene02",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene02",
+--	OnOneTimeEvent	-- Sorvina: Sorvina5
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take03", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureLookAtDirection {Tag = "Hydra", Direction = 77.35},
+--			CutsceneSay {TextTag = "Sorvina5", Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene03",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene03",
+--	OnOneTimeEvent	-- Hydra: Hydra1
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take04", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			CutsceneSay {TextTag = "Hydra1", Tag = "Hydra"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene04",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene04",
+--	OnOneTimeEvent	-- Sorvina geht zur Hydra
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take05", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureSimpleWalk {Tag = "Sorvina", X = 63.048, Y = 644.64},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene05",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene05",
+--	OnOneTimeEvent	-- Sorvina: Sorvina6
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--			--FigureIsIdle {Tag = "Sorvina"},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take06", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureLookAtDirection {Tag = "Sorvina", Direction = 287.235},
+--			FigureLookAtDirection {Tag = "Hydra", Direction = 298.693},
+--			-- Gefangene Schaikan schauen zu Sorvina
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan01", TargetTag = "Sorvina"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan02", TargetTag = "Sorvina"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan03", TargetTag = "Sorvina"},			
+--			FigureLookAtEntity	{Tag = "CS_B_02_Shaikan04", TargetTag = "Sorvina"},						
+--			CutsceneSay {TextTag = "Sorvina6", Tag = "Sorvina"},
+--			FigureCutsceneTalkJobSet {Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene06",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene06",
+--	OnOneTimeEvent	-- Hydra lacht
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			-- wie lacht denn ne Hydra? HAHA vielleicht?
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene07",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene07",
+--	OnOneTimeEvent	-- Hydra geht zu den Gefangenen Shaikan
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 2},
+--		},
+--		Actions =
+--		{
+--			FigureSimpleWalk {Tag = "Hydra", X = 51.1043, Y = 640.004},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene08",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene08",
+--	OnOneTimeEvent	-- Sorvina geht zum verwundeten Ur
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 3},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take07", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureSimpleWalk {Tag = "Sorvina", X = 57.5289, Y = 647.439},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene09",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene09",
+--	OnOneTimeEvent	-- Sorvina: Sorvina7
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--			--FigureIsIdle {Tag = "Sorvina"},
+--		},
+--		Actions =
+--		{
+--			--CameraTrackClear {},
+--			--CameraTakeAddToTrack {File = "CS_B_02_Take08", Tag = "default", TargetTag = "default"},
+--			--CameraTrackPlay {},
+--			FigureLookAtDirection {Tag = "Sorvina", Direction = 22.3454},
+--			FigureLookAtDirection {Tag = "TothLar", Direction = 203.01},
+--			CutsceneSay {TextTag = "Sorvina7", Tag = "Sorvina"},
+--			FigureCutsceneTalkJobSet {Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene10",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene10",
+--	OnOneTimeEvent	-- TothLar: TothLar1a
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take09", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			CutsceneSay {TextTag = "TothLar1a", Tag = "TothLar"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene11",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene11",
+--	OnOneTimeEvent	-- Sorvina: Sorvina8
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take10", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			CutsceneSay {TextTag = "Sorvina8", Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene12",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene12",
+--	OnOneTimeEvent	-- TothLar läuft zu Sorvina
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take11", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureSimpleWalk {Tag = "TothLar", X = 59.8428, Y = 642.82},			
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene13",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene13",
+--	OnOneTimeEvent	-- Tothlar: TothLar2
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--			--FigureIsIdle {Tag = "TothLar"},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take12", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			FigureLookAtDirection {Tag = "TothLar", Direction = 205.302},			
+--			CutsceneSay {TextTag = "TothLar2", Tag = "TothLar"},
+--			FigureCutsceneTalkJobSet {Tag = "TothLar"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene14",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene14",
+--	OnOneTimeEvent	-- Sorvina: Sorvina9
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take13", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			CutsceneSay {TextTag = "Sorvina9", Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene15",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene15",
+--	OnOneTimeEvent	-- Kamera auf Ur und Sorvina
+--	{
+--		Conditions =
+--		{
+--			CutsceneSayIsDone {},
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CameraTrackClear {},
+--			CameraTakeAddToTrack {File = "CS_B_02_Take14", Tag = "default", TargetTag = "default"},
+--			CameraTrackPlay {},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene16",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene16",
+--	OnOneTimeEvent	-- Effekt auf verwundeten Ur
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 0.5},
+--		},
+--		Actions =
+--		{
+--			EffectStart {Tag = "Ur_Wounded", File = "Effect_Spawn_Unit"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene16a",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene16a",
+--	OnOneTimeEvent	-- Effekt auf Sorvina
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 1},
+--		},
+--		Actions =
+--		{
+--			EffectStart {Tag = "Sorvina", File = "Effect_Spawn_Unit"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene16b",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene16b",
+--	OnOneTimeEvent	-- Ur verschwindet
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 0.5},
+--		},
+--		Actions =
+--		{
+--			FigureVanish {Tag = "Ur_Wounded"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene17",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene17",
+--	OnOneTimeEvent	-- Sorvina verschwindet
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 1},
+--		},
+--		Actions =
+--		{
+--			FigureVanish {Tag = "Sorvina"},
+--			EntityTimerStart {Name = "et_CStimer"},
+--		},
+--		GotoState = "Cutscene18",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "Cutscene18",
+--	OnCutsceneFigureDespawnEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CStimer", Seconds = 1.5},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStop {Name = "et_CStimer"},
+--			CameraTrackClear {},
+--			CameraStop {},
+--			CutsceneEnd{},
+--			-- Figuren werden wieder dargestellt
+--			CutsceneFigureRenderAll {},
+--			-- Vorbereitung auf vierte Cutscene, damit die Objekte da nicht plötzlich 
+--			-- auftauchen obwohl vorher nix dort war
+--			FigureVanish {Tag = "CS_B_02_Shaikan01"},
+--			FigureVanish {Tag = "CS_B_02_Shaikan02"},
+--			FigureVanish {Tag = "CS_B_02_Shaikan03"},
+--			FigureVanish {Tag = "CS_B_02_Shaikan04"},
+--			-- kaputte Käfige werden getauscht
+--			ObjectChange {Tag = "CS_B_02_Cage01", ObjectId = 479, X = 65.754, Y = 653.753, Direction = 0},
+--			ObjectChange {Tag = "CS_B_02_Cage02", ObjectId = 480, X = 71.136, Y = 656.458, Direction = 90},
+--			ObjectChange {Tag = "CS_B_02_Cage03", ObjectId = 479, X = 75.807, Y = 653.129, Direction = 180},
+--			ObjectChange {Tag = "CS_B_02_Cage04", ObjectId = 480, X = 59.594, Y = 653.004, Direction = 270},
+--			-- Leichen und Blut werden gespawnt
+--			ObjectSpawn	{ObjectId = 546, X = 60.98, Y = 652.443, Direction = 31, Tag = "BloodDecal01"},			
+--			ObjectSpawn	{ObjectId = 546, X = 75.439, Y = 652.286, Direction = 249, Tag = "BloodDecal02"},			
+--			ObjectSpawn	{ObjectId = 546, X = 69.977, Y = 657.858, Direction = 291, Tag = "BloodDecal03"},			
+--			ObjectSpawn	{ObjectId = 547, X = 70.293, Y = 653.321, Direction = 345, Tag = "BloodDecal04"},			
+--			ObjectSpawn	{ObjectId = 547, X = 59.687, Y = 647.831, Direction = 167, Tag = "BloodDecal05"},			
+--			ObjectSpawn	{ObjectId = 547, X = 65.152, Y = 650.992, Direction = 282, Tag = "BloodDecal06"},			
+--			ObjectSpawn	{ObjectId = 548, X = 65.391, Y = 650.094, Direction = 350, Tag = "BloodDecal07"},			
+--			ObjectSpawn	{ObjectId = 549, X = 72.073, Y = 648.971, Direction = 240, Tag = "BloodDecal08"},			
+--			ObjectSpawn	{ObjectId = 549, X = 64.138, Y = 648.192, Direction = 50, Tag = "BloodDecal09"},			
+--			ObjectSpawn	{ObjectId = 549, X = 69.624, Y = 646.876, Direction = 10, Tag = "BloodDecal10"},			
+--			ObjectSpawn	{ObjectId = 549, X = 73.151, Y = 655.419, Direction = 110, Tag = "BloodDecal11"},
+--			ObjectSpawn	{ObjectId = 84, X = 63.564, Y = 651.288, Direction = 6, Tag = "ShaikanDead01"},			
+--			ObjectSpawn	{ObjectId = 83, X = 69.51, Y = 651.25, Direction = 165, Tag = "ShaikanDead02"},			
+--			ObjectSpawn	{ObjectId = 80, X = 60.901, Y = 651.05, Direction = 343, Tag = "ShaikanDead03"},			
+--			ObjectSpawn	{ObjectId = 82, X = 70.887, Y = 651.81, Direction = 245, Tag = "ShaikanDead04"},			
+--			MapTimerStart {Name = "mt_P301_OutcriesAfterDragonFight"},
+--			FigureTeleport {X = 180, Y = 583, Tag = "TothLar"}
+--		},
+--		GotoState = "CutsceneEnd",
+--	},
+--};
+--
+--State
+--{
+--	StateName = "CutsceneEnd",
+--};

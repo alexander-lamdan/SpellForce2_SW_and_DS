@@ -1,0 +1,194 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "KorCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneIronLord",
+--		Conditions =
+--		{
+--			FigureIsInRange	{Range = 8, X = 554, Y = 415, Tag = "pl_HumanAvatar"},
+--			FigureIsInRange	{Range = 8, X = 554, Y = 415, Tag = "Kor"},
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneIronLord",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 568.64, Y = 61.67, Z = 417.23, LookAtX = 567.71, LookAtY = 61.23, LookAtZ = 417.11},
+--			EntityTimerStart {Name = "et_CutsceneTor"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor5", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord1", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor6", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Lokar1", Tag = "Lokar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar2", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar3", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "ShadowSong3", Tag = "ShadowSong"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 38},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord2", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 43},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord3", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 47},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord4", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 52},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "IronLord5", Tag = "IronLord"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 60},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneIronLordEnd"},
+--				QuestSetSolved {Quest = "ToIronLord"},
+--				QuestSetSolved {Quest = "GoSPart1ToSwordwall"},
+--				QuestSetActive {Quest = "GoSPart2ShadowKnowledge"},
+--				QuestSetActive {Quest = "TalkToNightsongAboutShadows"},
+--				DialogTypeSetMainQuest {Tag = "ShadowSong"},
+--				DialogSetEnabled {Tag = "ShadowSong"},
+--				DialogTypeSetMainQuest {Tag = "Mordecay"},
+--				DialogSetEnabled {Tag = "Mordecay"},
+--				DialogTypeSetMainQuest {Tag = "IronLord"},
+--    			DialogSetEnabled {Tag = "IronLord"},
+--    			--DialogTypeSetSideQuest {Tag = "Undar"},
+--    			--DialogSetEnabled {Tag = "Undar"},
+--    			
+--    		},
+--	},
+--};

@@ -1,0 +1,89 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "KorCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Kor",
+--		Conditions =
+--		{
+--			FigureIsInRange	{Range = 8, X = 488, Y = 589, Tag = "pl_HumanAvatar"},
+--			FigureIsInRange	{Range = 8, X = 488, Y = 589, Tag = "Kor"},
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Kor",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 488.79, Y = 29.35, Z = 609.03, LookAtX = 488.79, LookAtY = 29.61, LookAtZ = 608.07},
+--			EntityTimerStart {Name = "et_CutsceneTor"},
+--			MapFlagSetTrue{Name = "mf_P309_CutsceneGateBegin"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 3},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor9", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 9},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Kor10", Tag = "Kor"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTor", Seconds = 17},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetTrue {Name = "af_P309_CutsceneGateEnd"},
+--				
+--				QuestSetSolved {Quest = "ThroughTheGate"},
+--				QuestSetActive {Quest = "ToIronLord"},
+--				FigurePlayerTransfer {Tag = "Kor", Player = "pl_Kor"},
+--			},
+--	},
+--};
+--
+--	

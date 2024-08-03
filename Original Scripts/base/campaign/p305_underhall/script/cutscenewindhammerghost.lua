@@ -1,0 +1,119 @@
+---------------------------------------------------------------------------------
+----
+----		Wenn man mit WindhammerGhost redet
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Mine",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Mine",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			MapTimerIsElapsed	{Name = "mt_CutsceneWindhammerGhostTimer", Seconds = 2},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 284.66, Y = 54.26, Z = 252.74, LookAtX = 284.66, LookAtY = 53.81, LookAtZ = 253.63},
+--			EntityTimerStart {Name = "et_CutsceneWindhammerGhost"},
+--			
+--		}
+--	},
+----  Dialog zwischen Windhammer_Ghost und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 1},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Windhammer_Ghost", TextTag = "WindhammerGhost01"},
+--			
+--		}
+-- 	},
+----  Dialog zwischen Windhammer_Ghost und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 6},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "Windhammer_Ghost", TextTag = "WindhammerGhost02"},
+--			
+--			
+--		}
+--	},
+----  Dialog zwischen Windhammer_Ghost und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 11},
+--		},
+--		Actions =
+--		{
+--		
+--			CutsceneSay {Tag = "Windhammer_Ghost", TextTag = "WindhammerGhost03"},
+--		}
+--	},
+----  Dialog zwischen Windhammer_Ghost und Avatar
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 16},
+--		},
+--		Actions =
+--		{
+--			
+--			
+--			CutsceneSay {Tag = "Windhammer_Ghost", TextTag = "WindhammerGhost04"},
+--			
+--		}
+--	},
+--
+--
+--
+--	-- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneWindhammerGhost", Seconds = 21},
+--				
+--			},
+--			Actions =
+--			{
+--				MapFlagSetTrue	{Name = "mf_CutsceneWindhammerGhostEnded"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--};

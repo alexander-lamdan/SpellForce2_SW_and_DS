@@ -1,0 +1,46 @@
+---- Script fuer die normalen Daemonen (Tor 02)
+---- "Group02Demon01-0X"
+---- werden der Ground-KI uebergeben
+------------------------------------------
+--
+--
+--
+--State
+--{	
+--	StateName = "INIT",
+--	
+--		OnOneTimeEvent
+--	{
+--		
+--		
+--		Conditions = 
+--		{
+--		},
+--		Actions = 
+--		{
+--			FigurePlayerTransfer	{Tag = "default", Player = "pl_FlightDemon"},
+--		},
+--	};
+--
+--	
+--	
+--
+--	
+--	
+--	 --Daemonen ziehen sich nach Attack2 zurueck
+--	OnOneTimeEvent
+--	{
+--		
+--		Conditions = 
+--		{
+--			MapFlagIsTrue {Name = "mf_Retreat02"},			
+--		},
+--		Actions = 
+--		{
+--			FigureForcedRun	{Tag = "default", X = GetEntityX(), Y = GetEntityY()},
+--		},
+--	},
+--}
+--
+--
+-- 

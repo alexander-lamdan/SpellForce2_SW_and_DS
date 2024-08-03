@@ -1,0 +1,173 @@
+---------------------------------------------------------------------------------
+----
+----		4. Cutscene:
+----
+----		Nach dem Tod von Kaziz
+----
+----		
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P307_KazizDead"},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 445.46, Y = 104.91, Z = 497.42, LookAtX = 445.46, LookAtY = 103.97, LookAtZ = 497.77},
+--			EntityTimerStart {Name = "et_Cutscene"},		
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead01", Tag = "pl_HumanAvatar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead02", Tag = "KorEndFight"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead03", Tag = "pl_HumanAvatar"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead04", Tag = "KorEndFight"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead05", Tag = "KorEndFight"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 30},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead06", Tag = "pl_HumanAvatar"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 35},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead07", Tag = "ChiefKor"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 40},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead08", Tag = "KorEndFight"},
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 45},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "KazizDead08", Tag = "KorEndFight"},
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 50},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P307_CS04Finished"},
+--				
+--
+--			},
+--	},
+--	
+--}

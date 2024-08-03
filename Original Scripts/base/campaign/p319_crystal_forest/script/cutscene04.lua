@@ -1,0 +1,117 @@
+---------------------------------------------------------------------------------
+----
+----		4. Cutscene:
+----
+----		Das Schablonenrätsel im Labor wurde gelöst
+----
+----		Das Portal erscheint
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Main",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Main",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P319_Cutscene04Begin"},
+--		},
+--		Actions =
+--		{
+--			EntityTimerStart {Name = "et_Cutscene"},	
+--		}
+--	},
+--	
+----- VORSICHT, MARCUS!
+----- VOR EINFAHREN DER CUTSCENE-BALKEN MÜSSEN ZUERST 5 SEKUNDEN VERGEHEN
+----- SONST ÜBERLAPPT SICH EVTL. DIE CUTSCENE MIT EINEM DIALOG
+----- UND ES GIBT PROBLEME
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 5},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 298.01, Y = 121.56, Z = 497.78, LookAtX = 298.01, LookAtY = 120.62, LookAtZ = 498.13},
+--		}
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Exit_01", Tag = "Schattenkrieger"},
+--			
+--		}
+--	},
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Exit_02", Tag = "pl_HumanAvatar"},
+--			
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay	{TextTag = "Exit_03", Tag = "pl_HumanAvatar"},
+--			
+--		}
+--	},
+--
+--
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 25},
+--			},
+--			Actions =
+--			{	
+--				CameraStop {},
+--				CutsceneEnd {},
+--				
+--				AvatarFlagSetTrue {Name = "af_P319_CS04Finished"},
+--			},
+--	},
+--	
+--}

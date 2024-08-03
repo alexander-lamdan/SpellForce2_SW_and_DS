@@ -1,0 +1,36 @@
+-- -- Wenn UntoterBewohner in die Nähe eines Schutzkreises kommt, Bekommt ewr ein Force Go zu seinem Ausgangspunkt. 
+--
+--State
+--{
+--	StateName = "DwarfFredStart",
+--   	-- Zwerg rennt zum Portal und verschwindet.
+--   	OnOneTimeEvent
+--	{
+--		Conditions = 
+--		{
+--			FigureIsInRange	{Tag = "DwarfFred", Range = 5, X = 67, Y = 105},
+--		},
+--		Actions = 
+--		{
+--			--Zwerg rennt zum Portal
+--			FigureRun {Tag = "DwarfFred", X = 56, Y = 88},
+--		},
+--	},	
+--	
+--	-- Sobald der Zwerg das portal erreicht hat verschwindet er.
+--	OnOneTimeEvent
+--	{
+--		Conditions = 
+--		{
+--			FigureIsInRange	{Tag = "DwarfFred", Range = 2, X = 56, Y = 88},
+--		},
+--		Actions = 
+--		{
+--			--Zwerg verschwindet 
+--			FigureVanish	{Tag = "DwarfFred"},
+--			
+--		},
+--	},	
+-- 
+-- 
+--};

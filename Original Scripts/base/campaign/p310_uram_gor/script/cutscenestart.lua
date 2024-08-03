@@ -1,0 +1,169 @@
+---------------------------------------------------------------------------------
+----
+----		Zu Beginn der Map
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "UntotenStadt",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			FigureVanish {Tag = "FakeAvatar01"},
+--			FigureVanish {Tag = "FakeKor01"},
+--			EntityTimerStart {Name = "et_CutsceneStart"},
+--			
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "UntotenStadt",
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 68.60, Y = 44.40, Z = 118.27, LookAtX = 68.60, LookAtY = 44.23, LookAtZ = 119.25},
+--			FigureRun {Tag = "DwarfFred", X = 69, Y = 103},
+--			
+--		}
+--	},
+----  Wahnsinniger Zwerg schreit:
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 10},
+--		},
+--		Actions =
+--		{
+--			
+--			CutsceneSay { Tag = "DwarfFred", TextTag = "SillyDwarf"},
+--			FigureLookAtEntity	{Tag = "Kor", TargetTag = "DwarfFred"},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "DwarfFred"},
+--		}
+-- 	},
+---- Camerawechsel Dialog Spieler und Kor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 15},
+--		},
+--		Actions =
+--		{
+--			
+--			CameraSet {X = 69.49, Y = 49.35, Z = 83.26, LookAtX = 69.49, LookAtY = 40.27, LookAtZ = 101.08},
+--			
+--			
+--		}
+--	},
+---- Dialog Spieler und Kor
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 21},
+--		},
+--		Actions =
+--		{
+--			FigureLookAtEntity	{Tag = "Kor", TargetTag = "pl_HumanAvatar"},
+--			FigureLookAtEntity	{Tag = "pl_HumanAvatar", TargetTag = "Kor"},
+--			CutsceneSay {Tag = "Kor", TextTag = "Start_Kor01"},
+--		}
+--	},
+---- Camerawechsel 2 Blick auf das Tal der Asche
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 27},
+--		},
+--		Actions =
+--		{
+--			
+--			CameraSet {X = 250.49, Y = 61.90, Z = 80.74, LookAtX = 330.00, LookAtY = 40.00, LookAtZ = 140.00},
+--			CutsceneSay {Tag = "Kor", TextTag = "Start_Kor02"},
+--			
+--		}
+--	},
+--
+---- Camerawechsel 3 Blick auf die brennende Stadt
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 35},
+--		},
+--		Actions =
+--		{
+--			
+--			CameraSet {X = 112.89, Y = 54.97, Z = 236.23, LookAtX = 113.54, LookAtY = 54.81, LookAtZ = 236.97},
+--			CutsceneSay {Tag = "Kor", TextTag = "Start_Kor03"},
+--			
+--		}
+--	},
+--
+---- Camerawechsel 4 Schutzkreis
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 41},
+--		},
+--		Actions =
+--		{
+--			
+--			CameraSet {X = 71.49, Y = 49.42, Z = 229.08, LookAtX = 71.49, LookAtY = 40.34, LookAtZ = 246.90},
+--			CutsceneSay {Tag = "Kor", TextTag = "Start_Kor04"},
+--			
+--		}
+--	},
+--	
+---- Camerawechsel 5 Blick auf das Tal der Zwerge und das Tor zum Tal der Asche
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 47},
+--		},
+--		Actions =
+--		{
+--			CameraSet {X = 184.27, Y = 49.39, Z = 155.92, LookAtX = 185.13, LookAtY = 49.22, LookAtZ = 155.35},
+--			--CameraSet {X = 115.91, Y = 64.97, Z = 242.63, LookAtX = 116.38, LookAtY = 64.68, LookAtZ = 241.80},
+--			CutsceneSay {Tag = "Kor", TextTag = "Start_Kor05"},
+--			
+--		}
+--	},
+--
+--	-- Ende der Cutszene
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneStart", Seconds = 55},
+--				
+--			},
+--			Actions =
+--			{
+--				MapFlagSetTrue	{Name = "mf_CutsceneStartEnded"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--			
+--			}
+--	}
+--}

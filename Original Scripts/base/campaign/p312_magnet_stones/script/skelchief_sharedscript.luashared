@@ -1,0 +1,100 @@
+SecondsToRunOnEmpty = 300
+-- Wenn nicht alle X Sekunden ein Stein geliefert wird, geht es den Leadern dreckig
+  
+  
+
+State
+{
+	StateName = "MainScript",
+   
+   	OnOneTimeEvent
+   	{
+   		Conditions = {},
+   		Actions =
+   		{
+   			FigureHoldPosition{Tag = "default"},
+   		},
+   	},
+
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+		},
+		Actions =
+		{
+			EntityFlagSetTrue{Name = "ef_IAmOnPower"},
+			EntityTimerStart{Name = "et_PowerTimer"},
+		},
+		-- am Anfang sind die Chiefs alle gebufft
+	},
+
+	OnToggleEvent
+	{
+		OnConditions = 
+		{
+			EntityFlagIsTrue{Name = "ef_IAmOnPower"},
+		},
+		OnActions = 
+		{
+			EffectStart	{Tag = "default", File = "Effect_Misc_Skeleton_Immunity"},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.Immortal},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.Liferegeneration1000},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.Manaregeneration500},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.ImmuneBlack},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.ImmuneFire},
+			FigureAbilityAdd{Tag = "default", AbilityId = Ability.ImmuneMental},
+			
+			AvatarValueAdd{Name = "av_P312_ChiefsOnPower", Value = 1},
+			
+		},
+		OffConditions = 
+		{
+			EntityFlagIsFalse{Name = "ef_IAmOnPower"},
+		},
+		OffActions = 
+		{
+			EffectStop{},
+			FigureOutcry{TextTag = MyTextTag},
+			AvatarValueSubtract{Name = "av_P312_ChiefsOnPower", Value = 1},
+			FigureAbilityRemove	{Tag = "default", AbilityId = Ability.Immortal},
+			FigureAbilityRemove{Tag = "default", AbilityId = Ability.Liferegeneration1000},
+			FigureAbilityRemove{Tag = "default", AbilityId = Ability.Manaregeneration500},
+			FigureAbilityRemove{Tag = "default", AbilityId = Ability.ImmuneBlack},
+			FigureAbilityRemove{Tag = "default", AbilityId = Ability.ImmuneFire},
+			FigureAbilityRemove{Tag = "default", AbilityId = Ability.ImmuneMental},
+			
+			FigureTeamTransfer	{Team = "tm_Team_2"},
+		},
+	};
+
+	
+	OnEvent
+	{
+		Conditions =
+		{
+			AvatarFlagIsTrue{Name = MyServedFlag},
+		},
+		Actions =
+		{
+			AvatarFlagSetFalse{Name = MyServedFlag},
+			EntityFlagSetTrue{Name = "ef_IAmOnPower"},
+			EntityTimerStart{Name = "et_PowerTimer"},
+		},
+	},
+   
+   
+  	OnEvent
+  	{
+  		Conditions =
+  		{
+  			EntityTimerIsElapsed{Name = "et_PowerTimer", Seconds = SecondsToRunOnEmpty},
+   		},
+   		Actions =
+   		{
+   			EntityTimerStop{Name = "et_PowerTimer"},
+   			EntityFlagSetFalse{Name = "ef_IAmOnPower"},
+   		}, -- dem Chef geht die Energie aus (Running On Empty)
+   	},
+   	
+};

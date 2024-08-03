@@ -1,0 +1,69 @@
+--
+--
+--Object/UnitIds
+--local LightId = 1254
+--local NoLightId = 1340 
+--local Fire = 611
+--
+--
+--State
+--{
+--	StateName = "OrogLightsInit",
+--   	OnOneTimeEvent
+--	{
+--    	
+--    	Conditions =
+--    	{
+--    	
+--    	},
+--    	Actions =
+--    	{
+--    		MapFlagSetTrue {Name = "mf_OrogLight01On"},
+--       	},
+--		GotoState = "OrogLight01Start"
+--	},
+--}
+--
+--State	
+--{
+--    StateName = "OrogLight01Start",
+--    --An und Ausschalten der Fackeln
+--    --OrogLight ausschalten
+--   
+--    OnEvent
+--    {
+--    	
+--    	Conditions =
+--    	{
+--			SetUpdateInterval {Steps = 6},
+--    		MapFlagIsTrue {Name = "mf_OrogLight01On"},
+--    		FigureIsInRange	{Tag = "pl_HumanAvatar", Range = 2, X = GetEntityX(), Y = GetEntityY()},
+--    	},
+--    	Actions =
+--    	{
+-- 			ObjectChange	{Tag = "OrogLight01", ObjectId = NoLightId, X = GetEntityX(), Y = GetEntityY()},
+-- 			MapFlagSetFalse {Name = "mf_OrogLight01On"},
+-- 			MapTimerStart	{Name = "mt_Burner01generateTimer"},
+--   		},
+--    },   
+--    --OrogLight einschalten
+--    OnEvent
+--    {
+--    	
+--    	Conditions =
+--    	{
+--			SetUpdateInterval {Steps = 6},
+--    		MapFlagIsFalse {Name = "mf_OrogLight01On"},
+--    		FigureUnitNpcIsInRange	{UnitId = Fire, Range = 2, X = GetEntityX(), Y = GetEntityY()},
+--    	},
+--    	Actions =
+--    	{
+-- 			ObjectChange	{Tag = "OrogLight01", ObjectId = LightId, X = GetEntityX(), Y = GetEntityY()},
+-- 			MapFlagSetTrue {Name = "mf_OrogLight01On"},
+-- 			FigureVanish	{Tag = "OrogLight01burner"},
+-- 			MapTimerStop	{Name = "mt_Burner01generateTimer"},
+--   		},
+--    },    
+-- 
+--
+--};

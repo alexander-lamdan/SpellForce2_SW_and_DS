@@ -1,0 +1,156 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene nach erstem Daemonenangriff
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneSansha",
+--		Conditions =
+--		{
+--			AvatarIsNotTalking	{},	GameInterfaceIsVisible	{},
+--			MapFlagIsTrue {Name = "mf_IoGone"}, --CS nur, wenn io weggeschickt wurde!
+--			MapFlagIsTrue	{Name = "mf_CutsceneSanshaInit"},
+--			--FigureIsInRange	{Range = 5, X = 391, Y = 422, Tag = "pl_HumanAvatar"},
+--			FigureIsInEntityRange	{Tag = "pl_HumanAvatar", TargetTag = "Sansha", Range = 5},
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneSansha",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 344.761, Y = 43.627, Z = 377.589, LookAtX = 342.092, LookAtY = 42.2587, LookAtZ = 377.511},
+--			EntityTimerStart {Name = "et_CutsceneSansha"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar4", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha1", Tag = "Sansha"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 16},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha2", Tag = "Sansha"},
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 23},
+--			},
+--			Actions =
+--			{
+--				MapFlagSetTrue	{Name = "mf_IoIntoCutscene"},
+--				MapFlagSetTrue	{Name = "mf_HumanWorkerSpawn"}, --Io spawnt mit Arbeitern
+--				CutsceneSay	{TextTag = "Io1", Tag = "Io"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 27},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar5", Tag = "pl_HumanAvatar"},
+--				
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 35},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha3", Tag = "Sansha"},
+--			},
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 42},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Sansha4", Tag = "Sansha"},
+--			},
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneSansha", Seconds = 46},
+--			},
+--			Actions =
+--			{
+--				--GateSetOpen	{Tag = "P306Gate01"},
+--				--GateSetOpen	{Tag = "P306Gate02"},
+--				PlayerKitTransfer	{PlayerKit = "pk_Reinforcement"}, --Arbeiter uebergeben
+--				MapFlagSetTrue {Name = "mf_TechtreeFree"},
+--				MapFlagSetTrue	{Name = "mf_CutsceneSanshaDone"},
+--				QuestSetActive	{Player = "default", Quest = "DefendAgainstDemons2"},
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				
+--				
+--    			
+--    		},
+--	},
+--};
+--
+--	

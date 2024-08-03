@@ -1,0 +1,147 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene Daemonen saugen Elfen aus
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INIT",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "CutsceneBeginning",
+--		Conditions =
+--		{
+--    		 AvatarIsNotTalking	{},	GameInterfaceIsVisible	{},
+--			--FigureIsInRange	{Range = 5, X = 415, Y = 418, Tag = "pl_HumanAvatar"},
+--			
+--		},
+--		Actions =
+--		{
+--			
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "CutsceneBeginning",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 427.64, Y = 42.30, Z = 384.12, LookAtX = 427.41, LookAtY = 41.84, LookAtZ = 384.98},
+--			EntityTimerStart {Name = "et_CutsceneBeginning"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 4},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Shae1", Tag = "Shae"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 8},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar1", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 12},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Shae2", Tag = "Shae"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 18},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar2", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 24},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Shae3", Tag = "Shae"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 29},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Avatar3", Tag = "pl_HumanAvatar"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 34},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "Shae4", Tag = "Shae"},
+--			},
+--	},
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneBeginning", Seconds = 40},
+--			},
+--			Actions =
+--			{
+--				
+--				
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				DialogTypeSetMainQuest {Tag = "Shae"},
+--				DialogSetEnabled {Tag = "Shae"},
+--				QuestSetActive	{Player = "default", Quest = "DunMorapart1"},
+--				QuestSetActive	{Player = "default", Quest = "TalkToShae"},
+--    			
+--    		},
+--	},
+--};
+--
+--	

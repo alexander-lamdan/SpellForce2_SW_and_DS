@@ -1,0 +1,174 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene wenn der Spieler mit dem Konvoi ankommt
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "INITCutscene",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Free",
+--		Conditions =
+--		{
+--			
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--State
+--{
+--	StateName = "Free",
+--	-- Sind alle Attentäter tot wir das Flag zum Nachrücken gesetzt
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			AvatarFlagIsTrue {Name = "af_P303_Cutscene"},
+--			AvatarFlagIsTrue {Name = "af_P303_PlayerNearCity"},
+--			FigureIsDead {Tag = "OrcAttack1"},
+--			FigureIsDead {Tag = "OrcAttack2"},
+--			FigureIsDead {Tag = "OrcAttack3"},
+--			FigureIsDead {Tag = "OrcAttack4"},
+--			FigureIsDead {Tag = "OrcAttack5"},
+--			FigureIsDead {Tag = "OrcAttack6"},
+--			OR
+--			{
+--				PlayerFigureIsInRange {Player = "pl_Human", Range = 10, X = 302, Y = 243},
+--				PlayerFigureIsInRange {Player = "pl_Human", Range = 10, X = 308, Y = 265},
+--				PlayerFigureIsInRange {Player = "pl_Human", Range = 10, X = 308, Y = 254},
+--			},
+--		},
+--		Actions =
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 306.88, Y = 31.79, Z = 226.27, LookAtX = 306.91, LookAtY = 31.79, LookAtZ = 227.27},
+--			EntityTimerStart {Name = "et_Cutscene"},
+--			
+--			FigureWalk {Tag = "pl_HumanAvatar", X = 307, Y = 274},
+--			
+--			GateSetOpen {Tag = "TownGate"},
+--			GateSetOpen {Tag = "TownGate2"},
+--			
+--			
+--			FigureWalk {Tag = "ConvoyLeader", X = 275, Y = 352},			
+--			FigureWalk {Tag = "Helger", X = 308, Y = 257},  
+--			
+--			AvatarFlagSetTrue {Name = "af_P303_CutsceneShown"},
+--			
+--			--FigureWalk {Tag = "CronnachGuards1", X = 299, Y = 273},
+--			--FigureWalk {Tag = "CronnachGuards2", X = 303, Y = 273},
+--			FigureWalk {Tag = "CronnachGuards3", X = 287, Y = 313},
+--			FigureWalk {Tag = "CronnachGuards4", X = 255, Y = 324},
+--			FigureWalk {Tag = "LyrraineCrossbowmen1", X = 196, Y = 336},
+--			FigureWalk {Tag = "LyrraineCrossbowmen2", X = 325, Y = 283},  
+--			
+--		}
+--	},
+--	-- Ale 4 Sekunden labert einer was:
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 4},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Helger", TextTag = "Helger1"},
+--			FigureWalk {Tag = "Horse1", X = 292, Y = 354},
+--			FigureWalk {Tag = "Horse2", X = 292, Y = 354},
+--			FigureWalk {Tag = "Horse3", X = 288, Y = 349},
+--			FigureWalk {Tag = "Horse4", X = 290, Y = 349},
+--			FigureWalk {Tag = "Horse5", X = 290, Y = 345},
+--			
+--			
+--			
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 8},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Falkmar", TextTag = "Falkmar11"},
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 12},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Falkmar", TextTag = "Falkmar12"},	
+--					
+--		},
+--		
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 16},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Helger", TextTag = "Helger2"},
+--		},
+--		
+--	},	
+--	
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 20},
+--		},
+--		Actions =
+--		{
+--			--CameraSet {X = 310.88, Y = 35.79, Z = 220.27, LookAtX = 306.91, LookAtY = 31.79, LookAtZ = 227.27},
+--			CutsceneSay {Tag = "pl_Human", TextTag = "Avatar1"},
+--		}
+--	},
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{
+--			EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 24},
+--		},
+--		Actions =
+--		{
+--			CutsceneSay {Tag = "Helger", TextTag = "Helger3"},
+--		}
+--	},
+--	-- Ab hier greifen die Orkse die Stadt an
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_Cutscene", Seconds = 30},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				AvatarFlagSetFalse {Name = "af_P303_PlayerNearCity"},
+--				QuestSetSolved {Quest = "RushwaterPart1ConvoiToTown"}, 
+--				QuestSetActive {Quest = "RushwaterPart2SpeakToMatricus"},
+--				DialogTypeSetMainQuest {Tag = "Matricus"},
+--				DialogSetEnabled {Tag = "Matricus"}
+--			}
+--	}
+--}

@@ -1,0 +1,2 @@
+
+dofile(GetScriptPath() .. "Souls.lua")

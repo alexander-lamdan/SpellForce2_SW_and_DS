@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "CreepSammelscriptLVL20.lua")

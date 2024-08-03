@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "UntoterBewohnerSquadSammelscript01.lua")

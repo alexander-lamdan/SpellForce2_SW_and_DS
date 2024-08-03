@@ -1,0 +1,104 @@
+---------------------------------------------------------------------------------
+----
+----		Cutscene bei Missionsbeginn auf Crater --- Sorvina und M
+----
+---------------------------------------------------------------------------------
+--
+--
+--State
+--{
+--	StateName = "IntroCrater",
+--	OnOneTimeEvent
+--	{
+--		GotoState = "Cutscene",
+--		Conditions =
+--		{
+--		},
+--		Actions =
+--		{
+--		},
+--	},
+--}
+--
+--
+--
+--State
+--{
+--	StateName = "Cutscene",
+--	
+--	OnOneTimeEvent
+--	{
+--		Conditions =
+--		{  
+--			AvatarFlagIsTrue{Name = "af_P313_Cutscene01Begin"},
+--		},
+--		Actions = 
+--		{
+--			CutsceneBegin {},
+--			CameraSet {X = 169.58, Y = 7.15, Z = 229.28, LookAtX = 169.68, LookAtY = 7.61, LookAtZ = 230.17},
+--			EntityTimerStart {Name = "et_CutsceneTimer"},
+--		},
+--		
+--	},
+--	
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 5},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "SorviNaug01", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 10},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "SorviNaug02", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 15},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "SorviNaug03", Tag = "Sorvina"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 20},
+--			},
+--			Actions =
+--			{
+--				CutsceneSay	{TextTag = "SorviNaug04", Tag = "Naugron"},
+--			},
+--	},
+--	OnOneTimeEvent
+--	{
+--			Conditions =
+--			{
+--				EntityTimerIsElapsed {Name = "et_CutsceneTimer", Seconds = 25},
+--			},
+--			Actions =
+--			{
+--				CameraStop {},				
+--				CutsceneEnd {}, 
+--				
+--				AvatarFlagSetTrue{Name = "af_P313_Cutscene01Ended"},
+--			},
+--	},
+--};
+--
+--	

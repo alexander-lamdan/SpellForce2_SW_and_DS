@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "06Pat_Sammelscript.lua")
