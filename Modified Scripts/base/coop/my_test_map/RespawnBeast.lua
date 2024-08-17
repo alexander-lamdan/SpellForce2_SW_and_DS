@@ -6,29 +6,30 @@ State
 	{
 		Conditions =
 		{
-
+	    	-- fill_me
 		},
 		Actions =
 		{
-
+			-- fill_me
 		},
 		GotoState = "MAIN",
 	};
 };
 
 State
-{
+{ StateName = "Spawn"
   OnEvent
   {
-    Conditions = {},
-    Actions =
-    {
-      FigureRespawn {Tag="Soldier1",X=302,Y=330},
-      FigureRespawn {Tag="Soldier2",X=302,Y=330},
-      FigureRespawn {Tag="Soldier3",X=302,Y=330},
-      FigureRespawn {Tag="Soldier4",X=302,Y=330},
-    }
-  }
+	  Conditions =
+	  {
+
+	  },
+	  Actions =
+	  {
+      FigureRespawn {Tag = "test1", X = 11,Y = 333},
+      FigureRespawn {Tag = "test3", X = 8,Y = 333},
+	  },
+  },
 };
 
 State
