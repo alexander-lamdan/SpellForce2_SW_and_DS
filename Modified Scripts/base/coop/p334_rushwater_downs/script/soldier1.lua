@@ -1,2 +1,1 @@
-
 dofile(GetScriptPath() .. "SoldiersRespawn.lua")
