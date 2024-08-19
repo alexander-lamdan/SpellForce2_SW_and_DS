@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "Pact4DefZone1Unit1.lua")
