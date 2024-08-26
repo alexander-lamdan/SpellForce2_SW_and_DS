@@ -1,0 +1,3 @@
+
+
+dofile(GetScriptPath() .. "BlessedBSharedScript.lua")

@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "Beast2Unit1.lua")

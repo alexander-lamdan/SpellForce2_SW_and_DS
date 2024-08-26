@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "1CrystalGolemPat1.lua")

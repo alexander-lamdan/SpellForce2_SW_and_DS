@@ -1,0 +1,41 @@
+------------------------------------------------------------------------
+--
+--	weitere Platformscripte für diese Karte
+--	für jedes script wird eine eigene Statemachine angelegt
+--
+----------------------------------------------------------------------------
+
+return
+{
+	"SecretDoors.lua",
+	"Doors.lua",
+	"TeleportFight.lua",
+	"Teleportfight2.lua",
+	"SQWineQuest.lua",
+	"MainQuest.lua",
+	"Rewards.lua",
+	"Outcries.lua",
+	"NecromantFight.lua",
+	--"NecromantFight2.lua",
+	"FormerFight.lua",
+	"Garden.lua",
+	"CS_Palace_01_Intro.lua",
+	"CS_Palace_02_Geweihter1.lua",
+	"CS_Palace_03_Geweihter2.lua",
+	"CS_Palace_04_Geweihter3.lua",
+	"CS_Palace_05_Reached_Throne_Room.lua",
+	"CS_Palace_06_King_Ulf_Appears.lua",
+	"CS_Palace_07_Archfire.lua",
+	"CS_Palace_08_Its_Over_Now.lua",
+	"CS_08_Anim_pl_HumanAvatar.lua",
+	"CS_08_Anim_pl_HumanHeroWind.lua",
+	"CS_08_Anim_pl_HumanHeroWhisper.lua",
+	"CS_08_Anim_pl_HumanHeroCaine.lua",
+	"CS_08_Anim_pl_HumanHeroYasha.lua",
+	"CS_08_Anim_pl_HumanHeroMordecay.lua",
+	"CS_08_Anim_pl_HumanNightsong.lua",
+	"QuestRewards.lua",
+	"_DetectMapChange.lua",
+	"_HeroAbilities.lua",
+	"DebugMapTravel.lua",
+}

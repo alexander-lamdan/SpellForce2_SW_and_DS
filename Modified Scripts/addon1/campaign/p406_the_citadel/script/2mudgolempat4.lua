@@ -1,0 +1,1 @@
+dofile(GetScriptPath() .. "2MudGolemPat1.lua")
