@@ -8,31 +8,31 @@
 
 
 State
-{	
+{
 	StateName = "INIT",
-	OnFigureRespawnEvent	
+	OnFigureRespawnEvent
 	{
-		WaitTime = 6,
+		WaitTime = 8,
 		X = 341,
 		Y = 393,
 		Conditions =
 		{
 			BuildingIsAlive	{Tag = "HaupthausOrc1"},
 		},
-		Actions = 
+		Actions =
 		{
 			FigureRun	{X = GetEntityX(), Y = GetEntityY()},
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = false, 
+		},
+		NoSpawnEffect = false,
 		IsSpawnOnlyWhen = false,
 	},
-	
+
 };
 
