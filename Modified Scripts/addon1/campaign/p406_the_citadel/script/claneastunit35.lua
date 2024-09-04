@@ -1,0 +1,1 @@
+dofile(GetScriptPath().."ClanEastUnit1.lua")

@@ -16,72 +16,72 @@ AttackPointCamp4Y = 266 + (math.random(8)-4)
 
 
 State
-{	
+{
 	StateName = "INIT",
 	--wird erst gespawned wenn der Spieler von der Dragh lur kommt.
-	OnFigureSpawnOnlyWhenEvent	
+	OnFigureSpawnOnlyWhenEvent
 	{
 		X = GetEntityX(), Y = GetEntityY(),
-		Conditions = 
+		Conditions =
 		{
 			AvatarFlagIsTrue {Name = "af_P406_GeneralsReady2"},
 		},
-		Actions = 
+		Actions =
 		{
 			FigureHoldPosition	{},
-		}, 
-		DelayedActions = 
+		},
+		DelayedActions =
 		{
-			
-		}, 
+
+		},
 		NoSpawnEffect = false
-		
+
 	},
-	
-	--Unit kehrt zur Basis zurück, wenn sich der Angriffsbefehl verändert hat.
+
+	--Unit kehrt zur Basis zurï¿½ck, wenn sich der Angriffsbefehl verï¿½ndert hat.
 	OnIdleGoHomeFake
   	{
   		UpdateInterval = 50,
   		X = GetEntityX(), Y = GetEntityY(),
-  		StopFigureWhenConditionsAreFalse = true, 
-  		Conditions = 
+  		StopFigureWhenConditionsAreFalse = true,
+  		Conditions =
   		{
   			MapFlagIsFalse {Name = "mf_AttackAimGround1"},
   			MapFlagIsFalse {Name = "mf_AttackAimGround2"},
   			MapFlagIsFalse {Name = "mf_AttackAimGround3"},
   			MapFlagIsFalse {Name = "mf_AttackAimGround4"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		},
-  	}, -- wenn kein Auftrag, dann zurück zum Homepoint
-  
-  
+  	}, -- wenn kein Auftrag, dann zurï¿½ck zum Homepoint
+
+
 	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp1X, Y = AttackPointCamp1Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAimGround1"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "greife Camp 1 an", dann geh zu Camp 1
   	},
 
-	
+
 	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp2X, Y = AttackPointCamp2Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAimGround2"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 2 an", dann geh zu Camp 2
   	},
@@ -91,53 +91,53 @@ State
   		UpdateInterval = 50,
   		X = AttackPointCamp3X, Y = AttackPointCamp3Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAimGround3"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 3 an", dann geh zu Camp 3
-  	}, 
-  	
+  	},
+
   	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp4X, Y = AttackPointCamp4Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAimGround4"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 4 an", dann geh zu Camp 4
-  	}, 
-	
-	OnFigureRespawnEvent	
+  	},
+
+	OnFigureRespawnEvent
 	{
 		WaitTime = 5,
 		X = GetEntityX(),
 		Y = GetEntityY(),
 		Conditions =
 		{
-			FigureIsNotInRangeToEntity	{Tag = "pl_HumanAvatar", TargetTag = "TeleportEndMarkerCitadel", Range = 2},
+-- 			FigureIsNotInRangeToEntity	{Tag = "pl_HumanAvatar", TargetTag = "TeleportEndMarkerCitadel", Range = 2},
 		},
-		Actions = 
+		Actions =
 		{
-			
+
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = false, 
+		},
+		NoSpawnEffect = false,
 		IsSpawnOnlyWhen = false,
 	},
-	
-	
+
+
 };
 

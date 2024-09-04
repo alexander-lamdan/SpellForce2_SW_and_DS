@@ -5,16 +5,16 @@ State
 
 	OnFigureRespawnEvent
 	{
-		WaitTime = 5,
-		X = 630,
-		Y = 64,
+		WaitTime = 9,
+		X = 623,
+		Y = 68,
 		Conditions =
 		{
 
 		},
 		Actions =
 		{
-			FigureWalk	{X = GetEntityX(), Y = GetEntityY()},
+			FigureWalk	{X = 634, Y = 102},
 		},
 		DeathActions =
 		{

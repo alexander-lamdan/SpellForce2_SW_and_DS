@@ -1,16 +1,16 @@
-RespawnTimer = 10 --+ (math.random(60))
+RespawnTimer = 45 --+ (math.random(60))
 --Ponytrack Nummer 01 Guard 1 (Rechtsfuss)
 
 --*******************************************************
 --***                                                 ***
 --***               	InitState   		          ***
 --***                                                 ***
---*******************************************************		
+--*******************************************************
 
 State
-{	
+{
 	StateName = "InitState",
-	OnFigureRespawnEvent	
+	OnFigureRespawnEvent
 	{
 		WaitTime = RespawnTimer,
 		X = GetEntityX(),
@@ -20,19 +20,19 @@ State
 			MapFlagIsFalse {Name = "mf_Track01Vanish"},
 			PlayerFigureIsNotInRange	{Player = "pl_Human", Range = 31, X = 126, Y = 666},
 		},
-		Actions = 
+		Actions =
 		{
 			EntityFlagSetTrue {Name = "ef_StartTeleport"},
 			EntityFlagSetFalse	{Name = "ef_GotoSchalter"},
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = true, 
+		},
+		NoSpawnEffect = true,
 		IsSpawnOnlyWhen = false,
 	},
 	OnEvent
@@ -45,14 +45,14 @@ State
 		{
 			CutsceneFigureTeleport	{X = GetEntityX(), Y = GetEntityY()},
 			EntityFlagSetFalse {Name = "ef_StartTeleport"},
-		},	
-		
-	},	
+		},
+
+	},
 	OnEvent
 	{
 		Conditions =
 		{
-			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"}, 
+			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"},
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			EntityFlagIsFalse {Name = "ef_StartTeleport"},
 			EntityFlagIsFalse	{Name = "ef_GotoSchalter"},
@@ -61,15 +61,15 @@ State
 		{
 			EntityFlagSetTrue	{Name = "ef_GotoSchalter"},
 		},
-		GotoState = "PathState2",	
-	},	
-	
-	
+		GotoState = "PathState2",
+	},
+
+
 	OnEvent
 	{
 		Conditions =
 		{
-			MapFlagIsFalse	{Name = "mf_Camp05Destroyed"}, 
+			MapFlagIsFalse	{Name = "mf_Camp05Destroyed"},
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			EntityFlagIsFalse {Name = "ef_StartTeleport"},
 			EntityFlagIsFalse	{Name = "ef_GotoSchalter"},
@@ -79,30 +79,30 @@ State
 			EntityFlagSetTrue	{Name = "ef_GotoSchalter"},
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "InitState"},
 		},
-		GotoState = "PathState",	
-	},	
-	
-	
+		GotoState = "PathState",
+	},
+
+
 };
 
-	
+
 --*******************************************************
 --***                                                 ***
 --***                PathState		                  ***
 --***                                                 ***
---*******************************************************	
+--*******************************************************
 
-PathStates	
+PathStates
 {
 	StateName = "PathState",
-	Conditions = 
+	Conditions =
 	{
-		MapTimerIsElapsed	{Name = "mt_TrackStartSyncTimer", Seconds = 14},	
-	}, 
-	Actions = 
+		MapTimerIsElapsed	{Name = "mt_TrackStartSyncTimer", Seconds = 14},
+	},
+	Actions =
 	{
 		--DebugMessage	{Caption = "Guard1_Track01", Message = "PathState"},
-	}, 
+	},
 	StopConditions =
 	{
 		OR
@@ -113,20 +113,20 @@ PathStates
 				MapFlagIsTrue {Name = "mf_FollowStart"},
 			},
 			FigureIsInEntityRange	{TargetTag = "Track1Rider4", Range = 5},
-			--MapFlagIsTrue	{Name = "mf_ResetTrack01"}, 
+			--MapFlagIsTrue	{Name = "mf_ResetTrack01"},
 		},
-	}, 
-	StopActions = 
+	},
+	StopActions =
 	{
 		FigureStop{},
-		
-	}, 
-	Points = 
+
+	},
+	Points =
 	{
 		DontTeleportToStartPosition = true,
    		--{Point = "02RStartPathPoint", WaitTime = 0, Range = 3},
         --{Point = "01RStartPathPoint", WaitTime = 0},
-        {Point = "PathPoint02r",WaitTime = 0, Range = 3},      
+        {Point = "PathPoint02r",WaitTime = 0, Range = 3},
         {Point = "PathPoint03r",},
         {Point = "PathPoint04r",},
         {Point = "PathPoint05r",},
@@ -151,7 +151,7 @@ PathStates
         {Point = "PathPoint22r",},
         {Point = "PathPoint23r",},
         {Point = "Track1Rider4",},
-       
+
    	},
 	GotoState = "CheckState",
 };
@@ -160,19 +160,19 @@ PathStates
 --***                                                 ***
 --***                PathStateReturn                  ***
 --***                                                 ***
---*******************************************************	
+--*******************************************************
 
-PathStates	
+PathStates
 {
 	StateName = "PathStateReturn",
-	Conditions = 
+	Conditions =
 	{
 		MapTimerIsElapsed	{Name = "mt_TrackEndSyncTimer", Seconds = 14},
-	}, 
-	Actions = 
+	},
+	Actions =
 	{
 		--DebugMessage	{Caption = "Guard1_Track01", Message = "PathStateReturn"},
-	}, 
+	},
 	StopConditions =
 	{
 		OR
@@ -183,15 +183,15 @@ PathStates
 				MapFlagIsTrue {Name = "mf_FollowStart"},
 			},
 			FigureIsInEntityRange	{TargetTag = "02RStartPathPoint", Range = 5},
-			--MapFlagIsTrue	{Name = "mf_ResetTrack01"}, 
+			--MapFlagIsTrue	{Name = "mf_ResetTrack01"},
 		},
-	}, 
-	StopActions = 
+	},
+	StopActions =
 	{
 		FigureStop{},
-		
-	}, 
-	Points = 
+
+	},
+	Points =
 	{
 		DontTeleportToStartPosition = true,
 		{Point = "PathPoint25r", WaitTime =  0, Range = 3},
@@ -218,7 +218,7 @@ PathStates
         {Point = "PathPoint02r",},
        -- {Point = "01RStartPathPoint",},
         {Point = "02RStartPathPoint",},
-        
+
    	},
 	GotoState = "CheckState",
 };
@@ -227,19 +227,19 @@ PathStates
 --***                                                 ***
 --***                PathState2		                  ***
 --***                                                 ***
---*******************************************************	
+--*******************************************************
 
-PathStates	
+PathStates
 {
 	StateName = "PathState2",
-	Conditions = 
+	Conditions =
 	{
-		MapTimerIsElapsed	{Name = "mt_TrackStartSyncTimer", Seconds = 14},	
-	}, 
-	Actions = 
+		MapTimerIsElapsed	{Name = "mt_TrackStartSyncTimer", Seconds = 14},
+	},
+	Actions =
 	{
 		--DebugMessage	{Caption = "Guard1_Track01", Message = "PathState2"},
-	}, 
+	},
 	StopConditions =
 	{
 		OR
@@ -250,20 +250,20 @@ PathStates
 				MapFlagIsTrue {Name = "mf_FollowStart"},
 			},
 			FigureIsInEntityRange	{TargetTag = "Track1Stop4", Range = 5},
-			--MapFlagIsTrue	{Name = "mf_ResetTrack01"}, 
+			--MapFlagIsTrue	{Name = "mf_ResetTrack01"},
 		},
-	}, 
-	StopActions = 
+	},
+	StopActions =
 	{
 		FigureStop{},
-		
-	}, 
-	Points = 
+
+	},
+	Points =
 	{
 		DontTeleportToStartPosition = true,
    		--{Point = "02RStartPathPoint", WaitTime = 0, Range = 3},
         --{Point = "01RStartPathPoint", WaitTime = 0},
-        {Point = "PathPoint02r",WaitTime = 0, Range = 3},      
+        {Point = "PathPoint02r",WaitTime = 0, Range = 3},
         {Point = "PathPoint03r",},
         {Point = "PathPoint04r",},
         {Point = "PathPoint05r",},
@@ -274,7 +274,7 @@ PathStates
         {Point = "PathPoint10r",},
         {Point = "PathPoint11r",},
         {Point = "Track1Stop4",},
-       
+
    	},
 	GotoState = "CheckState",
 };
@@ -283,19 +283,19 @@ PathStates
 --***                                                 ***
 --***                PathState2Return                  ***
 --***                                                 ***
---*******************************************************	
+--*******************************************************
 
-PathStates	
+PathStates
 {
 	StateName = "PathState2Return",
-	Conditions = 
+	Conditions =
 	{
 		MapTimerIsElapsed	{Name = "mt_TrackEndSyncTimer", Seconds = 14},
-	}, 
-	Actions = 
+	},
+	Actions =
 	{
 		--DebugMessage	{Caption = "Guard1_Track01", Message = "PathState2Return"},
-	}, 
+	},
 	StopConditions =
 	{
 		OR
@@ -306,15 +306,15 @@ PathStates
 				MapFlagIsTrue {Name = "mf_FollowStart"},
 			},
 			FigureIsInEntityRange	{TargetTag = "02RStartPathPoint", Range = 5},
-			--MapFlagIsTrue	{Name = "mf_ResetTrack01"}, 
+			--MapFlagIsTrue	{Name = "mf_ResetTrack01"},
 		},
-	}, 
-	StopActions = 
+	},
+	StopActions =
 	{
 		FigureStop{},
-		
-	}, 
-	Points = 
+
+	},
+	Points =
 	{
         DontTeleportToStartPosition = true,
         {Point = "Track1Return1r", WaitTime = 0, Range = 3},
@@ -331,7 +331,7 @@ PathStates
         {Point = "PathPoint02r",},
        -- {Point = "01RStartPathPoint",},
         {Point = "02RStartPathPoint",},
-        
+
    	},
 	GotoState = "CheckState",
 };
@@ -343,29 +343,29 @@ PathStates
 --***                                                 ***
 --***               	CheckState   		          ***
 --***                                                 ***
---*******************************************************		
+--*******************************************************
 State
-{	
-	StateName = "CheckState",	
+{
+	StateName = "CheckState",
 	OnEvent
 	{
 		Conditions =
 		{
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			FigureIsInEntityRange	{TargetTag = "Track1Rider4", Range = 15},
-			--MapFlagIsFalse	{Name = "mf_Camp05Destroyed"}, 
+			--MapFlagIsFalse	{Name = "mf_Camp05Destroyed"},
 		},
 		Actions =
 		{
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "CheckState"},
-		},	
+		},
 		GotoState = "PathStateReturn",
-	},	
+	},
 	OnEvent
 	{
 		Conditions =
 		{
-			MapFlagIsFalse	{Name = "mf_Camp05Destroyed"}, 
+			MapFlagIsFalse	{Name = "mf_Camp05Destroyed"},
 			--MapFlagIsFalse	{Name = "mf_ResetTrack01"},
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			FigureIsInEntityRange	{TargetTag = "02RStartPathPoint", Range = 15},
@@ -373,15 +373,15 @@ State
 		Actions =
 		{
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "CheckState"},
-		},	
+		},
 		GotoState = "PathState",
-	},	
-	
+	},
+
 	OnEvent
 	{
 		Conditions =
 		{
-			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"}, 
+			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"},
 			--MapFlagIsFalse	{Name = "mf_ResetTrack01"},
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			FigureIsInEntityRange	{TargetTag = "02RStartPathPoint", Range = 15},
@@ -389,14 +389,14 @@ State
 		Actions =
 		{
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "CheckState"},
-		},	
+		},
 		GotoState = "PathState2",
-	},	
+	},
 	OnEvent
 	{
 		Conditions =
 		{
-			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"}, 
+			MapFlagIsTrue	{Name = "mf_Camp05Destroyed"},
 			--MapFlagIsFalse	{Name = "mf_ResetTrack01"},
 			MapFlagIsFalse {Name = "mf_FollowStart"},
 			FigureIsInEntityRange	{TargetTag = "Track1Stop4", Range = 15},
@@ -404,10 +404,10 @@ State
 		Actions =
 		{
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "CheckState"},
-		},	
+		},
 		GotoState = "PathState2Return",
-	},	
-	
+	},
+
 	OnEvent
 	{
 		Conditions =
@@ -417,79 +417,79 @@ State
 		Actions =
 		{
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "CheckState"},
-		},	
+		},
 		GotoState = "FightState",
-	},	
+	},
 };
 
 --*******************************************************
 --***                                                 ***
 --***               	FightState   		          ***
 --***                                                 ***
---*******************************************************		
+--*******************************************************
 State
-{	
-	StateName = "FightState",	
+{
+	StateName = "FightState",
 	--Angriff auf den Tross, Vorhut begibt sich zum Schutz der Packpferde
-	
-     OnToggleEvent	
+
+     OnToggleEvent
 	{
 		EventName = "HoldPosition",
 		OnConditions =
 		{
 			SetUpdateInterval	{Steps = 20},
 			MapTimerIsElapsed	{Name = "mt_FollowStartTimer", Seconds = 3.3},
-			
+
 			EntityFlagIsFalse {Name = "ef_StateChange"},
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack01", TargetTag = "04LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack01"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack02", TargetTag = "04RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack02"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack03", TargetTag = "05LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack03"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack04", TargetTag = "05RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack04"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack05", TargetTag = "06LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack05"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack06", TargetTag = "06RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack06"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack07", TargetTag = "07LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack07"},
 			},
-			
+
 			OR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack08", TargetTag = "07RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack08"},
 			},
 		},
-		OnActions = 
+		OnActions =
 		{
 			FigureForcedRunToEntity	{TargetTag = "PathPoint11"},
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "FightState"},
@@ -500,61 +500,61 @@ State
 			MapTimerIsElapsed	{Name = "mt_FollowStartTimer", Seconds = 3},
 
 			EntityFlagIsFalse {Name = "ef_StateChange"},
-			NotOR	
+			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack01", TargetTag = "04LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack01"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack02", TargetTag = "04RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack02"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack03", TargetTag = "05LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack03"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack04", TargetTag = "05RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack04"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack05", TargetTag = "06LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack05"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack06", TargetTag = "06RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack06"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack07", TargetTag = "07LStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack07"},
 			},
-			
+
 			NotOR
 			{
 				FigureIsInEntityRange	{Tag = "Track01Pack08", TargetTag = "07RStartPathPoint", Range = 10},
 				FigureIsDead	{Tag = "Track01Pack08"},
 			},
 		},
-		OffActions = 
+		OffActions =
 		{
 			FigureStop	{},
 			--DebugMessage	{Caption = "Guard1_Track01", Message = "FightState"},
 		},
 	},
-	
+
 	--Reiter vanished nach einem Angriff auf den Tross im mittleren Camp.
 	OnEvent
 	{
@@ -567,12 +567,12 @@ State
 		{
 			FigureVanish	{},
 		},
-		
+
 	},
-	
-	
+
+
 	--Wenn die Einheit umgebracht wird/oder gevanished wird springt sie in den PathState
-	OnFigureRespawnEvent	
+	OnFigureRespawnEvent
 	{
 		WaitTime = RespawnTimer,
 		X = GetEntityX(),
@@ -582,22 +582,22 @@ State
 			MapFlagIsFalse {Name = "mf_Track01Vanish"},
 			PlayerFigureIsNotInRange	{Player = "pl_Human", Range = 31, X = 126, Y = 666},
 		},
-		Actions = 
+		Actions =
 		{
 			EntityFlagSetTrue {Name = "ef_StateChange"},
 			EntityFlagSetTrue {Name = "ef_StartTeleport"},
 			EntityFlagSetFalse	{Name = "ef_EinmalSchalter"},
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = true, 
+		},
+		NoSpawnEffect = true,
 		IsSpawnOnlyWhen = false,
-		
+
 	},
 	OnEvent
 	{
@@ -609,9 +609,9 @@ State
 		{
 			CutsceneFigureTeleport	{X = GetEntityX(), Y = GetEntityY()},
 			EntityFlagSetFalse {Name = "ef_StartTeleport"},
-		},	
-		
-	},	
+		},
+
+	},
 	--Figure wird in den PathState gezwungen
 	OnEvent
 	{
@@ -624,7 +624,7 @@ State
 		{
 			EntityFlagSetFalse {Name = "ef_StateChange"},
 			EntityFlagSetFalse	{Name = "ef_GotoSchalter"},
-		},	
+		},
 		GotoState = "InitState",
-	},		
+	},
 };

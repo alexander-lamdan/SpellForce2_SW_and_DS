@@ -1,31 +1,31 @@
 
 State
-{	
+{
 	StateName = "INIT",
-	
-	OnFigureRespawnEvent	
+
+	OnFigureRespawnEvent
 	{
-		WaitTime = 30,
+		WaitTime = 5,
 		X = 473,
 		Y = 254,
 		Conditions =
 		{
-			BuildingIsAlive	{Tag = "Opponent4Base2"},
+-- 			BuildingIsAlive	{Tag = "Opponent4Base2"},
 		},
-		Actions = 
+		Actions =
 		{
 			FigureRun	{X = GetEntityX(), Y = GetEntityY()},
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = false, 
+		},
+		NoSpawnEffect = false,
 		IsSpawnOnlyWhen = false,
 	},
-	
+
 };
 

@@ -1,0 +1,1 @@
+dofile(GetScriptPath().."AnimalAlly1.lua")

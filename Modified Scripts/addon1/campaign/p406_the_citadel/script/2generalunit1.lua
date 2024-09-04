@@ -17,35 +17,35 @@ AttackPointCamp5Y = 253 + (math.random(8)-4)
 
 
 State
-{	
+{
 	StateName = "INIT",
 	--wird erst gespawned wenn der Spieler von der Dragh lur kommt.
-	OnFigureSpawnOnlyWhenEvent	
+	OnFigureSpawnOnlyWhenEvent
 	{
 		X = GetEntityX(), Y = GetEntityY(),
-		Conditions = 
+		Conditions =
 		{
 			AvatarFlagIsTrue {Name = "af_P406_GeneralsReady"},
 		},
-		Actions = 
+		Actions =
 		{
 			FigureHoldPosition	{},
-		}, 
-		DelayedActions = 
+		},
+		DelayedActions =
 		{
-			
-		}, 
+
+		},
 		NoSpawnEffect = false
-		
+
 	},
-	
-	--Unit kehrt zur Basis zurück, wenn sich der ANgriffsbefehl verändert hat.
+
+	--Unit kehrt zur Basis zurï¿½ck, wenn sich der ANgriffsbefehl verï¿½ndert hat.
 	OnIdleGoHomeFake
   	{
   		UpdateInterval = 50,
   		X = GetEntityX(), Y = GetEntityY(),
-  		StopFigureWhenConditionsAreFalse = true, 
-  		Conditions = 
+  		StopFigureWhenConditionsAreFalse = true,
+  		Conditions =
   		{
   			MapFlagIsFalse {Name = "mf_AttackAim1"},
   			MapFlagIsFalse {Name = "mf_AttackAim2"},
@@ -57,38 +57,38 @@ State
   				FigureIsDead	{Tag = "GateMonster"},
   			},
   		},
-  		Actions = 
+  		Actions =
 		{
-			
+
 		},
-  	}, -- wenn kein Auftrag, dann zurück zum Homepoint
-  
-  
+  	}, -- wenn kein Auftrag, dann zurï¿½ck zum Homepoint
+
+
 	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp1X, Y = AttackPointCamp1Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAim1"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "greife Camp 1 an", dann geh zu Camp 1
   	},
 
-	
+
 	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp2X, Y = AttackPointCamp2Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAim2"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 2 an", dann geh zu Camp 2
   	},
@@ -98,44 +98,44 @@ State
   		UpdateInterval = 50,
   		X = AttackPointCamp3X, Y = AttackPointCamp3Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAim3"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 3 an", dann geh zu Camp 3
-  	}, 
-  	
+  	},
+
   	OnIdleRunHomeFake
   	{
   		UpdateInterval = 50,
   		X = AttackPointCamp4X, Y = AttackPointCamp4Y,
   		StopFigureWhenConditionsAreFalse = true,
-  		Conditions = 
+  		Conditions =
   		{
   			MapFlagIsTrue {Name = "mf_AttackAim4"},
   		},
-  		Actions = 
+  		Actions =
 		{
 		}, -- Wenn Auftrag "Greif Camp 4 an", dann geh zu Camp 4
-  	}, 
-  	
+  	},
+
 --  	OnIdleRunHomeFake
 --  	{
 --  		UpdateInterval = 50,
 --  		X = AttackPointCamp5X, Y = AttackPointCamp5Y,
 --  		StopFigureWhenConditionsAreFalse = true,
---  		Conditions = 
+--  		Conditions =
 --  		{
 --  			MapFlagIsTrue	{Name = "mf_AttackGuardian"},
 --  		},
---  		Actions = 
+--  		Actions =
 --		{
 --			FigureForceAttackEntity	{TargetTag = "GateMonster"},
---		}, -- Wenn Auftrag "Greif Torwächter an", dann geh zum Torwächter
---  	}, 
-	
+--		}, -- Wenn Auftrag "Greif Torwï¿½chter an", dann geh zum Torwï¿½chter
+--  	},
+
 	OnEvent
 	{
 		Conditions =
@@ -149,32 +149,32 @@ State
 			FigureForceAttackEntity	{TargetTag = "GateMonster"},
 			EntityFlagSetTrue	{Name = "ef_OneTimeAttack"},
 		},
-		
+
 	},
-		
-	OnFigureRespawnEvent	
+
+	OnFigureRespawnEvent
 	{
-		WaitTime = 8,
+		WaitTime = 10,
 		X = GetEntityX(),
 		Y = GetEntityY(),
 		Conditions =
 		{
-			FigureIsNotInRangeToEntity	{Tag = "pl_HumanAvatar", TargetTag = "TeleportEndMarkerCitadel", Range = 2},
+-- 			FigureIsNotInRangeToEntity	{Tag = "pl_HumanAvatar", TargetTag = "TeleportEndMarkerCitadel", Range = 2},
 		},
-		Actions = 
+		Actions =
 		{
 			EntityFlagSetFalse	{Name = "ef_OneTimeAttack"},
 		},
-		DeathActions = 
+		DeathActions =
 		{
-			
-		}, 
-		DelayedActions = 
+
+		},
+		DelayedActions =
 		{
-		}, 
-		NoSpawnEffect = false, 
+		},
+		NoSpawnEffect = false,
 		IsSpawnOnlyWhen = false,
 	},
-	
+
 };
 

@@ -1,4 +1,4 @@
--- Angriffstruppen, der Blades, die sich kleine Scharmützel in der Festung liefern
+-- Angriffstruppen, der Blades, die sich kleine Scharmï¿½tzel in der Festung liefern
 
 State
 {
@@ -14,19 +14,19 @@ State
 			EntityValueSet {Name = "ev_P407_MyNumber", Value = myNumber}
 		},
 	},
-	-- Wenn der Spieler in der Nähe ist oder das Spawngebäude platt, dann kein Respawn
+	-- Wenn der Spieler in der Nï¿½he ist oder das Spawngebï¿½ude platt, dann kein Respawn
 	OnOneTimeEvent
 	{
 		Conditions =
 		{
 			OR
-			{		
-				PlayerHasNotBuildingAmount	{Player = "pl_Siege", Amount = 1},
-				--PlayerFigureIsInRangeToEntity {Range = 20, TargetTag = "FortressFightBad" .. myNumber},
-				FigureIsDead {Tag = "GateBoss"},
-				MapTimerIsElapsed {Name = "mt_P407_TrapItemCarrier", Seconds = 1},
+			{
+-- 				PlayerHasNotBuildingAmount	{Player = "pl_Siege", Amount = 1},
+-- 				--PlayerFigureIsInRangeToEntity {Range = 20, TargetTag = "FortressFightBad" .. myNumber},
+-- 				FigureIsDead {Tag = "GateBoss"},
+-- 				MapTimerIsElapsed {Name = "mt_P407_TrapItemCarrier", Seconds = 1},
 			},
-			
+
 		},
 		Actions =
 		{
@@ -36,10 +36,10 @@ State
 	OnFigureRespawnEvent
 	{
 		WaitTime = 8, -- NOTE HOLGER: HIER STAND VORHER 6
-					  -- ICH SOLLTE ES AUF QA-WUNSCH FÜR DIE BETA ÄNDERN
+					  -- ICH SOLLTE ES AUF QA-WUNSCH Fï¿½R DIE BETA ï¿½NDERN
 		X = 462,
 		Y = 378,
-		
+
 		Conditions =
 		{
 			EntityFlagIsFalse {Name = "ef_P407_NoRespawn"},
@@ -53,11 +53,11 @@ State
 	-- Das Spawning der Gegner wird langsamer, umso weiter die Dunkelelfen in der Festung sind
 	OnFigureRespawnEvent
 	{
-		WaitTime = 13, -- NOTE HOLGER: HIER STAND VORHER 10
-					   -- ICH SOLLTE ES AUF QA-WUNSCH FÜR DIE BETA ÄNDERN
+		WaitTime = 7, -- NOTE HOLGER: HIER STAND VORHER 10
+					   -- ICH SOLLTE ES AUF QA-WUNSCH Fï¿½R DIE BETA ï¿½NDERN
 		X = 462,
 		Y = 378,
-		
+
 		Conditions =
 		{
 			EntityFlagIsFalse {Name = "ef_P407_NoRespawn"},
@@ -75,11 +75,11 @@ State
 	},
 	OnFigureRespawnEvent
 	{
-		WaitTime = 13, -- NOTE HOLGER: HIER STAND VORHER 10
-					   -- ICH SOLLTE ES AUF QA-WUNSCH FÜR DIE BETA ÄNDERN
+		WaitTime = 6, -- NOTE HOLGER: HIER STAND VORHER 10
+					   -- ICH SOLLTE ES AUF QA-WUNSCH Fï¿½R DIE BETA ï¿½NDERN
 		X = 462,
 		Y = 378,
-		
+
 		Conditions =
 		{
 			EntityFlagIsFalse {Name = "ef_P407_NoRespawn"},
@@ -98,15 +98,15 @@ State
 	},
 	OnFigureRespawnEvent
 	{
-		WaitTime = 60,  -- NOTE HOLGER: HIER STAND VORHER 45
-						-- ICH SOLLTE ES AUF QA-WUNSCH FÜR DIE BETA ÄNDERN
+		WaitTime = 7,  -- NOTE HOLGER: HIER STAND VORHER 45
+						-- ICH SOLLTE ES AUF QA-WUNSCH Fï¿½R DIE BETA ï¿½NDERN
 		X = 462,
 		Y = 378,
-		
+
 		Conditions =
 		{
 			EntityFlagIsFalse {Name = "ef_P407_NoRespawn"},
-			FigureIsAlive {Tag = "GateBoss"},
+-- 			FigureIsAlive {Tag = "GateBoss"},
 			EntityFlagIsTrue {Name = "ef_P407_SlowestRespawning"},
 		},
 		Actions =
@@ -131,7 +131,7 @@ State
 		{
 		},
 	},
-	-- Wenn der Spieler lang genug unten ist wird für den obersten Trupp das Spawning ganz ausgeschaltet
+	-- Wenn der Spieler lang genug unten ist wird fï¿½r den obersten Trupp das Spawning ganz ausgeschaltet
 	OnOneTimeEvent
 	{
 		Conditions =
@@ -144,7 +144,7 @@ State
 			EntityFlagSetTrue {Name = "ef_P407_NoRespawn"},
 		},
 	},
-	-- SInd die Dunkelelfen weit in der Festung hören Einheiten auf zu spawnen
+	-- SInd die Dunkelelfen weit in der Festung hï¿½ren Einheiten auf zu spawnen
 	OnOneTimeEvent
 	{
 		Conditions =
@@ -157,7 +157,7 @@ State
 			EntityFlagSetTrue {Name = "ef_P407_NoRespawn"},
 		},
 	},
-	-- Sind die Dunkelelfen des letzten Trupps zweimal getötet, werden sie lansamer spawnen
+	-- Sind die Dunkelelfen des letzten Trupps zweimal getï¿½tet, werden sie lansamer spawnen
 	OnOneTimeEvent
 	{
 		Conditions =
@@ -171,7 +171,7 @@ State
 		},
 	},
 	-- Desto weiter der SPieler ist, desto langsamer spawnen die Einheiten
-	
+
 	--OnIdleRunHomeFake
 	--{
 	--	X = 347+offSetX,
@@ -186,8 +186,8 @@ State
 	--	{
 	--	},
 	--},
-	
-	-- Der oberer Trupp geht weiter, wenn er das Tor freigekämpft hat
+
+	-- Der oberer Trupp geht weiter, wenn er das Tor freigekï¿½mpft hat
 	OnIdleRunHomeFake
 	{
 		X = 373+offSetX,
@@ -201,7 +201,7 @@ State
 		Actions =
 		{
 			EntityValueSet {Name = "ev_P407_FirstStepFurther", Value = 1},
-		},  
+		},
 		HomeActions =
 		{
 			FigureLookAtDirection {Direction = 286},
@@ -222,12 +222,12 @@ State
 		Actions =
 		{
 			EntityValueSet {Name = "ev_P407_FirstStepFurther", Value = 2},
-		},  
+		},
 		HomeActions =
 		{
 			FigureLookAtDirection {Direction = 120},
 			EntityTimerStart {Name = "et_P407_AttackFurtherOn"},
 		},
 	},
-	
+
 }

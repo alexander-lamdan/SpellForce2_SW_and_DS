@@ -1,7 +1,7 @@
 TagOwnBuilding =
 {
 	-- Die Namen der Gebäude
-	
+
 	[1] = "OwnBuildElenShrine",
 	[2] = "OwnBuildCastle",
 	[3] = "OwnBuildElvenFortress",
@@ -10,11 +10,11 @@ TagOwnBuilding =
  	[6] = "OwnBuildDwarvenForge",
  	[7] = "OwnBuildBlacksmith",
  	[8] = "OwnBuildFarm",
- 	
-} 
- 
-RequiredBuildings =      
-{                        
+
+}
+
+RequiredBuildings =
+{
 	Soldier = {2,7}, -- Burg / Schmiede
 	Catapult = {5,6}, -- Kriegerhalle / Meisterwerkstatt
 	SecondCatapult = {8,5},  -- Farm / Kriegerhalle
@@ -24,7 +24,7 @@ RequiredBuildings =
 	Crossbowman = {7,7}, -- Schmiede & dito
 }
 
-CoordsMyBuilding = 
+CoordsMyBuilding =
 {
 	[1] = { X = 259.775, Y = 81.2434, },
 	[2] = { X = 231.076, Y = 138.712, },
@@ -34,19 +34,19 @@ CoordsMyBuilding =
 	[6] = { X = 263.562, Y = 146.125, },
 	[7] = { X = 263.028, Y = 133.458, },
 	[8] = { X = 272.464, Y = 88.2892, },
-}                
+}
 
 --RequiredBuildings =
 --{
 --	Matricus = {3,4,5},
 --},
---  
--- RequiredBuildings.Matricus[3] wäre die 5 
+--
+-- RequiredBuildings.Matricus[3] wäre die 5
 
 State
-{	
+{
 	StateName = "INIT",
-	
+
 	OnOneTimeEvent
 	{
 		Conditions =
@@ -66,15 +66,15 @@ State
 };
 
 State
-{	
+{
 	StateName = "PlayerControl",
-			
+
 	OnFigureRespawnEvent
 	{
-		WaitTime = 5,
+		WaitTime = 2,
 		X = CoordsMyBuilding[RequiredBuildings[MyType][1]].X,
 		Y = CoordsMyBuilding[RequiredBuildings[MyType][1]].Y,
-		Conditions = 
+		Conditions =
 		{
 			AND
 			{
@@ -82,7 +82,7 @@ State
 				BuildingIsAlive{Tag = TagOwnBuilding[RequiredBuildings[MyType][2]]},
 			},
 		},
-		Actions = 
+		Actions =
 		{
 			EntityFlagSetFalse{Name = "ef_AtPoint"},
 		},
@@ -95,11 +95,11 @@ State
 		Y = GetEntityY(),
 		Range = 8,
 		StopFigureWhenConditionsAreFalse = false,
-		Conditions = 
+		Conditions =
 		{
 			EntityFlagIsFalse{Name = "ef_AtPoint"},
 		},
-		HomeActions = 
+		HomeActions =
 		{
 			FigurePlayerTransfer{Tag = "default", Player = "pl_Human"},
 			EntityFlagSetTrue{Name = "ef_AtPoint"},

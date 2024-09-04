@@ -1,9 +1,9 @@
--- Angriffstruppen, der Blades, die sich kleine Scharmützel in der Festung liefern
+-- Angriffstruppen, der Blades, die sich kleine Scharmï¿½tzel in der Festung liefern
 
 State
 {
 	StateName = "INIT",
-	-- Wenn der Spieler in der Nähe ist oder das Spawngebäude platt, dann kein Respawn
+	-- Wenn der Spieler in der Nï¿½he ist oder das Spawngebï¿½ude platt, dann kein Respawn
 	OnOneTimeEvent
 	{
 		Conditions =
@@ -18,13 +18,13 @@ State
 	},
 	OnFigureRespawnEvent
 	{
-		WaitTime = 10,
+		WaitTime = 4,
 		X = 420,
 		Y = 673,
-		
+
 		Conditions =
 		{
-			FigureIsAlive {Tag = "GateBoss"},
+-- 			FigureIsAlive {Tag = "GateBoss"},
 			EntityFlagIsFalse {Name = "ef_P407_NoRespawn"}
 		},
 		Actions =
@@ -52,13 +52,13 @@ State
 		Conditions =
 		{
 			FigureTeamIsNotInRange {X = 414, Y = 582, Range = 20, Team = "tm_Team2"},
-			FigureIsAlive {Tag = "GateBoss"},
+-- 			FigureIsAlive {Tag = "GateBoss"},
 		},
 		Actions =
 		{
 		},
 	},
-	
+
 	OnIdleRunHomeFake
 	{
 		X = GetEntityX(),
@@ -66,7 +66,7 @@ State
 		GotoForced = false,
 		Conditions =
 		{
-			FigureIsDead {Tag = "GateBoss"},
+-- 			FigureIsDead {Tag = "GateBoss"},
 		},
 		Actions =
 		{
