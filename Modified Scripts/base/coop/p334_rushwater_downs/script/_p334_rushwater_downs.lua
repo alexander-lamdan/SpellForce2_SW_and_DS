@@ -14,7 +14,7 @@ State
 			FogOfWarReveal {X = 290,Y = 613,Range = 50,Height = 20},
 		},
 		GotoState = "MAIN",
-	};
+	},
 };
 
 State
