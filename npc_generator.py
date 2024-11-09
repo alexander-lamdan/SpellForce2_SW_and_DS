@@ -10,6 +10,45 @@ main_script = input("Enter the main script filename that will be in the npc file
 counter = 0
 lua_command = f'dofile(GetScriptPath().."{main_script}.lua")'
 
+main_script_template = '''State
+{
+	StateName = "INIT",
+
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+	    	-- fill_me
+		},
+		Actions =
+		{
+
+		},
+		GotoState = "MAIN",
+	},
+};
+
+State
+{
+	StateName = "MAIN",
+
+	OnOneTimeEvent
+	{
+		Conditions =
+		{
+		    -- fill_me
+		},
+		Actions =
+		{
+            -- fill_me
+		},
+	},
+
+};'''
+
+with open(main_script + '.lua','w') as file:
+	file.write(main_script_template)
+print(f'The file {main_script} is created\n')
 
 while npc_count > counter:
 
@@ -17,5 +56,5 @@ while npc_count > counter:
   generated_npc = f'{npc_map_name}{counter}.lua'
 
   with open(generated_npc,'w') as file:
-	  file.write(lua_command)
+    file.write(lua_command)
   print(f'Your file {generated_npc} is created')

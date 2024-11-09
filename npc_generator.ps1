@@ -9,7 +9,6 @@ Write-Output "Hey, this is script generator for SpellForce Lua Scripts if you're
 
 for ($i = 1; $i -le $npcCount ; $i++){
 
-
   New-Item -Name "$scriptname$i.lua" -Value "$mainScriptPath"
   Write-Output "Your npc script is created: $scriptname$i.lua"
 
