@@ -52,5 +52,7 @@ script_foler = "script"
 with open(map_name_script,'w') as file:
 
 	if not os.path.exists(map_dirname):
-		os.makedirs(map_dirname,script_foler)
+		os.mkdir(map_dirname)
+	file.write(state_template)
 print(f'The directory {map_dirname} is created\n')
+print(f'The file {map_name_script} is created\n')
