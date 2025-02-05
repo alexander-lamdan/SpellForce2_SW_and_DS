@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "PonyCampGuard1.lua")

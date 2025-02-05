@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "WineGhost1.lua")

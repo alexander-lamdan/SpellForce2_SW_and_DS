@@ -1,1 +1,0 @@
-dofile(GetScriptPath().."Loyal2Spawn.lua")

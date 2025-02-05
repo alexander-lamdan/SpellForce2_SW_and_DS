@@ -1,1 +1,0 @@
-dofile(GetScriptPath().."FortressFightGood.lua")

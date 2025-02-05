@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "BonusDefender_SharedScript.lua")

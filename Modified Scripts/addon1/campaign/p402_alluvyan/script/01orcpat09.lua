@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "01OrcPat01.lua")

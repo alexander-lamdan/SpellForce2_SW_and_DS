@@ -1,1 +1,0 @@
-dofile(GetScriptPath().."UndeadGroup2Respawn.lua")

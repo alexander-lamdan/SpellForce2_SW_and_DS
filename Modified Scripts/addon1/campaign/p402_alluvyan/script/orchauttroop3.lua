@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "OrchautTroop1.lua")

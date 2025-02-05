@@ -1,1 +1,0 @@
-CS_02_Dwarf_GotoY = 16.8

@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "Pact3DefZone1Unit1.lua")

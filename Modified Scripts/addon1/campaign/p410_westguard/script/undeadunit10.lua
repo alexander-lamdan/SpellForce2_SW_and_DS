@@ -1,1 +1,0 @@
-dofile(GetScriptPath() .. "UndeadUnit1.lua")
